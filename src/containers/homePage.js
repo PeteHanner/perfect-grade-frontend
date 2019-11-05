@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import CourseCards from '../components/CourseCards'
+import HomePageBtns from '../components/HomePageBtns'
 
 
 class HomePage extends Component {
@@ -12,6 +13,7 @@ class HomePage extends Component {
         <CourseCards
           courses={this.props.courses}
         />
+      <HomePageBtns/>
       </Fragment>
     )
   }

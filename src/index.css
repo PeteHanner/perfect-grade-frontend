@@ -12,7 +12,32 @@ code {
     monospace;
 }
 
+.card {
+  margin: 1.25rem;
+  opacity: 0.75;
+  /* padding: 0px; */
+}
+.card:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.card .card-title.h5{
+  opacity: 1;
+}
+
 #course-cards {
-  /* padding: 20px; */
+  padding: 20px;
   text-align: center;
+}
+
+#home-page-btns {
+  float: right;
+  padding: 2%
+}
+
+.sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
 }
