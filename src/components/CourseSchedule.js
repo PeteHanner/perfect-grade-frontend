@@ -5,7 +5,7 @@ const CourseSchedule = (props) => {
   const renderAssignments = () => {
     return props.assignments.map(a => {
       return (
-        <li>{a.adj_date}:  {a.description}</li>
+        <li>{a.og_date}:  {a.description}</li>
       );
     })
   }

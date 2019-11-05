@@ -5,47 +5,55 @@ import CourseSidebar from '../components/CourseSidebar'
 
 class CoursePage extends Component {
 
-  constructor() {
-    super()
-    this.state = {
-      courseTitle: '',
-      assignments: []
-    }
+  // set assignments for specified course on full load
+  // componentWillReceiveProps(nextProps) {
+  //
+  //   if (nextProps.courses.length > 0) {
+  //     this.setState({
+  //       courseTitle: nextProps.courses.find(course => {
+  //         return course.id === parseInt(this.props.match.params.id)
+  //       }).name
+  //     })
+  //
+  //     let assignments = nextProps.courses.find(course => {
+  //       return course.id === parseInt(this.props.match.params.id)
+  //     }).assignments
+  //
+  //     assignments = assignments.sort( (a,b) => {
+  //       return new Date(a.og_date) - new Date(b.og_date);
+  //     })
+  //
+  //     this.setState({
+  //       assignments: assignments
+  //     });
+  //   }
+  // }
+
+  courseTitle = () => {
+    return this.props.courses.find(course => {
+      return course.id === parseInt(this.props.match.params.id)
+    }).name
   }
 
-  // set assignments for specified course on full load
-  componentWillReceiveProps(nextProps) {
-
-    if (nextProps.courses.length > 0) {
-      this.setState({
-        courseTitle: nextProps.courses.find(course => {
-          return course.id === parseInt(this.props.match.params.id)
-        }).name
-      })
-
-      let assignments = nextProps.courses.find(course => {
-        return course.id === parseInt(this.props.match.params.id)
-      }).assignments
-
-      assignments = assignments.sort( (a,b) => {
-        return new Date(a.og_date) - new Date(b.og_date);
-      })
-
-      this.setState({
-        assignments: assignments
-      });
-    }
+  assignments = () => {
+    return this.props.courses.find(course => {
+      return course.id === parseInt(this.props.match.params.id)
+    }).assignments.sort( (a, b) => {
+      return new Date(a.og_date) - new Date(b.og_date);
+    });
   }
 
   render() {
     return (
+      this.props.courses.length > 0 ?
       <Fragment>
-        <h2>{this.state.courseTitle}</h2>
+        <h2>{this.courseTitle()}</h2>
         <CourseSchedule
-          assignments={this.state.assignments}
+          assignments={this.assignments()}
         />
         <CourseSidebar />
-      </Fragment>
+      </Fragment> :
+      null
     )
   }
 }
