@@ -8,17 +8,31 @@ class CoursePage extends Component {
   constructor() {
     super()
     this.state = {
+      courseTitle: '',
       assignments: []
     }
   }
 
   // set assignments for specified course on full load
   componentWillReceiveProps(nextProps) {
+
     if (nextProps.courses.length > 0) {
       this.setState({
-        assignments: nextProps.courses.find(course => {
+        courseTitle: nextProps.courses.find(course => {
           return course.id === parseInt(this.props.match.params.id)
-        }).assignments
+        }).name
+      })
+
+      let assignments = nextProps.courses.find(course => {
+        return course.id === parseInt(this.props.match.params.id)
+      }).assignments
+
+      assignments = assignments.sort( (a,b) => {
+        return new Date(a.og_date) - new Date(b.og_date);
+      })
+
+      this.setState({
+        assignments: assignments
       });
     }
   }
@@ -26,7 +40,7 @@ class CoursePage extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Course Page</h2>
+        <h2>{this.state.courseTitle}</h2>
         <CourseSchedule
           assignments={this.state.assignments}
         />
