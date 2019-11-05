@@ -35,12 +35,18 @@ code {
   padding: 2%
 }
 
+#course-page {
+  padding: 1%
+}
+
 .sidenav {
   height: 100%;
   width: 20%;
   position: fixed;
   z-index: 1;
+  padding-top: 1%;
   top: 0;
   right: 0;
   background-color: lightblue;
+  text-align: center;
 }
