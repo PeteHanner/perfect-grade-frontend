@@ -6,19 +6,24 @@ import CourseSidebar from '../components/CourseSidebar'
 
 class CoursePage extends Component {
 
+  targetCourse = () =>
+
   render() {
     return (
       <Fragment>
         <h2>Course Page</h2>
         <CourseSchedule />
-        <CourseSidebar class='sidenav' />
+        <CourseSidebar />
       </Fragment>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return { courses: state.courses }
+function mapStateToProps(state, ownProps) {
+  return {
+    courses: state.coursesReducer.courses
+  }
 }
 
 export default connect(mapStateToProps)(CoursePage)
+

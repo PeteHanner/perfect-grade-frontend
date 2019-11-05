@@ -20,7 +20,9 @@ class HomePage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { courses: state.coursesReducer.courses }
+  return {
+    courses: state.coursesReducer.courses
+  }
 }
 
 export default connect(mapStateToProps)(HomePage)

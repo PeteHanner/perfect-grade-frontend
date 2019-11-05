@@ -17,8 +17,14 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route exact path='/courses/:id' component={CoursePage}/>
+          <Route
+            exact path='/'
+            component={HomePage}
+          />
+          <Route
+            exact path='/courses/:id'
+            component={CoursePage}
+          />
         </Switch>
       </BrowserRouter>
     )

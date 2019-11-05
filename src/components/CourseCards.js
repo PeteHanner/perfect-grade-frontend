@@ -11,7 +11,6 @@ const CourseCards = (props) => {
 
   const goToCoursePage = (e) => {
     e.preventDefault()
-    console.log(e.target.dataset.id);
     props.history.push(`/courses/${e.target.dataset.id}`)
   }
 
