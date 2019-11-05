@@ -4,8 +4,20 @@ export default function assignmentsReducer(
   },
   action
 ) {
-  switch(action.type) {
+  switch (action.type) {
+    case 'REQUESTING_ASSIGNMENTS':
+      return {
+        ...state,
+        assignments: [...state.assignments],
+        requesting: true
+      };
+    case 'LOAD_ASSIGNMENTS':
+      return {
+        ...state,
+        assignments: action.payload,
+        requesting: false
+      };
     default:
-    return state;
+      return state;
   }
-}
+};

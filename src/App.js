@@ -1,17 +1,40 @@
-import React, {Component} from 'react';
-import { Route, Switch } from "react-router-dom";
-import homePage from './containers/homePage'
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import HomePage from './containers/HomePage'
+import { fetchAssignments } from './actions/fetchAssignments'
+import { fetchCourses } from './actions/fetchCourses'
 
 class App extends Component {
+
+  componentDidMount() {
+    // this.props.fetchAssignments()
+    this.props.fetchCourses()
+  }
+
   render() {
-    return(
-      <div className='App'>
+    return (
+      <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={homePage} />
+          <Route exact path='/' component={HomePage} />
         </Switch>
-      </div>
+      </BrowserRouter>
     )
   }
 }
 
-export default App;
+function matchDispatchToProps(dispatch) {
+  return {
+    fetchAssignments: () => dispatch(fetchAssignments()),
+    fetchCourses: () => dispatch(fetchCourses())
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    assignments: state.assignments,
+    courses: state.courses
+  }
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(App);
