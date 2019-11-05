@@ -35,8 +35,6 @@ const CourseCards = (props) => {
   }
 
   return (
-    // <Container>
-    //   <Row>
     <CardGroup id='course-cards'>
           {renderCourseCards()}
           <Card bg='light' style={{ maxWidth: '15rem' }}>
@@ -44,8 +42,6 @@ const CourseCards = (props) => {
             <Card.Title>Add A New Course</Card.Title>
           </Card>
         </CardGroup>
-    //   </Row>
-    // </Container>
   )
 }
 

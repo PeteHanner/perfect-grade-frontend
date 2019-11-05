@@ -14,7 +14,7 @@ code {
 
 .card {
   margin: 1.25rem;
-  opacity: 0.75;
+  opacity: 0.85;
   /* padding: 0px; */
 }
 .card:hover{
