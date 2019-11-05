@@ -46,13 +46,13 @@ class CoursePage extends Component {
   render() {
     return (
       this.props.courses.length > 0 ?
-      <Fragment>
+      <div id='course-page'>
         <h2>{this.courseTitle()}</h2>
         <CourseSchedule
           assignments={this.assignments()}
         />
         <CourseSidebar />
-      </Fragment> :
+      </div> :
       null
     )
   }
