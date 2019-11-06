@@ -1,18 +1,25 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {withRouter } from 'react-router-dom'
 
 const AdjustedScheduleList = (props) => {
 
   const renderAsgmts = () => {
-    return props.assignments.map(a => {
+    const entries = Object.entries(props.assignments)
+
+    return entries.map(day => {
       return(
-        <li>{a.adj_date}: {a.description}</li>
-      );
-    });
+        <>
+          <h5>{day[0]}</h5>
+          <ul>
+            {day[1].map(a => <li key={a.description}>{a.description}</li>)}
+          </ul>
+        </>
+      )
+    })
   }
 
   return(
-    props.assignments.length > 0 ?
+    props.assignments !== [] ?
     <div>
       {renderAsgmts()}
     </div>
