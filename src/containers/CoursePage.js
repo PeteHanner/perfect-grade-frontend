@@ -34,7 +34,7 @@ class CoursePage extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     courses: state.coursesReducer.courses
   }
