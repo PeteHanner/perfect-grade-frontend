@@ -6,9 +6,9 @@ class SchedulePage extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div id='schedule-page' className='offside'>
         <h2>Schedule Page</h2>
-      </Fragment>
+      </div>
     )
   }
 }
@@ -17,4 +17,4 @@ function mapStateToProps(state) {
   return { state }
 }
 
-export default connect(mapStateToProps)(HomePage)
+export default connect(mapStateToProps)(SchedulePage)

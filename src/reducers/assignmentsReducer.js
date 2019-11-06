@@ -11,7 +11,7 @@ export default function assignmentsReducer(
         assignments: [...state.assignments],
         requesting: true
       };
-    case 'LOAD_ASSIGNMENTS':
+    case 'ASSIGNMENTS_LOADED':
       return {
         ...state,
         assignments: action.payload,

@@ -5,30 +5,6 @@ import CourseSidebar from '../components/CourseSidebar'
 
 class CoursePage extends Component {
 
-  // set assignments for specified course on full load
-  // componentWillReceiveProps(nextProps) {
-  //
-  //   if (nextProps.courses.length > 0) {
-  //     this.setState({
-  //       courseTitle: nextProps.courses.find(course => {
-  //         return course.id === parseInt(this.props.match.params.id)
-  //       }).name
-  //     })
-  //
-  //     let assignments = nextProps.courses.find(course => {
-  //       return course.id === parseInt(this.props.match.params.id)
-  //     }).assignments
-  //
-  //     assignments = assignments.sort( (a,b) => {
-  //       return new Date(a.og_date) - new Date(b.og_date);
-  //     })
-  //
-  //     this.setState({
-  //       assignments: assignments
-  //     });
-  //   }
-  // }
-
   courseTitle = () => {
     return this.props.courses.find(course => {
       return course.id === parseInt(this.props.match.params.id)
@@ -46,7 +22,7 @@ class CoursePage extends Component {
   render() {
     return (
       this.props.courses.length > 0 ?
-      <div id='course-page'>
+      <div id='course-page' className='offside'>
         <h2>{this.courseTitle()}</h2>
         <CourseSchedule
           assignments={this.assignments()}
