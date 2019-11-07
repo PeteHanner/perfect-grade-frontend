@@ -11,7 +11,7 @@ const AdjustedScheduleList = (props) => {
         <Fragment>
           <h5>{day}</h5>
           <ul>
-            {asgs.map(a => <li>{a.description} {a.course}</li>)}
+            {asgs.map(a => <li>{a.description} <br/> ({a.course.name})</li>)}
           </ul>
         </Fragment>
       )
