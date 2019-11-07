@@ -11,7 +11,7 @@ export function createCourse(formData) {
   console.log(configObj)
   return dispatch => {
     dispatch({ type: 'CREATING_COURSE' });
-    fetch('http://localhost:3001/courses/create', configObj)
+    fetch('http://localhost:3001/courses', configObj)
     .then(r => r.json())
     .then(data => console.log(data))
   }
