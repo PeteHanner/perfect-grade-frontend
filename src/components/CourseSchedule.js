@@ -24,7 +24,7 @@ const CourseSchedule = (props) => {
         props.assignments.length > 0 ?
           renderAssignments()
         :
-        <p> Loading, please wait</p>
+        <p>No assignments added yet.</p>
       }
     </div>
   )
