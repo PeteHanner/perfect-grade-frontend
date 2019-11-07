@@ -4,16 +4,16 @@ import {withRouter } from 'react-router-dom'
 const AdjustedScheduleList = (props) => {
 
   const renderAsgmts = () => {
-    const entries = Object.entries(props.assignments)
-
-    return entries.map(day => {
+    return props.assignments.map(entry => {
+      const day = entry[0]
+      const asgs = entry[1]
       return(
-        <>
-          <h5>{day[0]}</h5>
+        <Fragment>
+          <h5>{day}</h5>
           <ul>
-            {day[1].map(a => <li key={a.description}>{a.description}</li>)}
+            {asgs.map(a => <li>{a.description} {a.course}</li>)}
           </ul>
-        </>
+        </Fragment>
       )
     })
   }
