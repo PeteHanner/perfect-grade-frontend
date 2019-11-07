@@ -2,19 +2,30 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { connect } from 'react-redux'
+import { createCourse } from '../actions/createCourse'
 
 const NewCourseForm = (props) => {
 
-  const handleSubmit = (e) => {
-    e.preDefault();
-    props.onHide()
-    console.log('Submitting new Course')
-  }
+  const [courseTitle, setCourseTitle] = React.useState('')
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = {
+      userId: 1, // // TODO: take out hardcoding for user session
+      courseTitle: courseTitle
+    }
+
+    props.createCourse(formData)
+    props.onHide()
+    // console.log(courseTitle)
+  }
 
   return (
     <Modal
-      {...props}
+      onHide={props.onHide}
+      show={props.show}
       centered
     >
       <Modal.Header closeButton>
@@ -32,10 +43,8 @@ const NewCourseForm = (props) => {
               type='text'
               placeholder='Underwater Basket Weaving 301'
               required
+              onChange={(e)=> setCourseTitle(e.target.value)}
             />
-            <Form.Control.Feedback type="invalid">
-              Please enter a course title.
-            </Form.Control.Feedback>
           </Form.Group>
           <Button variant='success' type='submit'>
             Submit
@@ -46,4 +55,10 @@ const NewCourseForm = (props) => {
   )
 }
 
-export default NewCourseForm
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: (formData) => dispatch(createCourse(formData))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(NewCourseForm)

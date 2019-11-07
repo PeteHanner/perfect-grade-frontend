@@ -41,10 +41,10 @@ function mapStateToProps(state) {
   }
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     fetchCourses: () => dispatch(fetchCourses())
   };
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
