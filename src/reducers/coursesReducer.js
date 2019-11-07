@@ -17,18 +17,19 @@ export default function coursesReducer(
         courses: action.payload,
         requesting: false
       };
-    // case 'CREATING_COURSE':
-    //   return {
-    //     ...state,
-    //     courses: [...state.courses],
-    //     requesting: true
-    //   };
-    // case 'COURSE_CREATED':
-    //   return {
-    //     ...state,
-    //     courses: action.payload,
-    //     requesting: false
-    //   };
+    case 'CREATING_COURSE':
+      return {
+        ...state,
+        courses: [...state.courses],
+        requesting: true
+      };
+    case 'COURSE_CREATED':
+      // debugger
+      return {
+        ...state,
+        courses: [...state.courses, action.payload],
+        requesting: false
+      };
     default:
       return state;
   }
