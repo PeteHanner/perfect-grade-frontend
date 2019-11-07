@@ -4,13 +4,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from './containers/HomePage'
 import CoursePage from './containers/CoursePage'
 import SchedulePage from './containers/SchedulePage'
-import { fetchAssignments } from './actions/fetchAssignments'
 import { fetchCourses } from './actions/fetchCourses'
 
 class App extends Component {
 
   componentDidMount() {
-    // this.props.fetchAssignments()
     this.props.fetchCourses()
   }
 
@@ -45,7 +43,6 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   return {
-    // fetchAssignments: () => dispatch(fetchAssignments()),
     fetchCourses: () => dispatch(fetchCourses())
   };
 }

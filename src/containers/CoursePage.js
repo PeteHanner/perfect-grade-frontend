@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CourseSchedule from '../components/CourseSchedule'
 import CourseSidebar from '../components/CourseSidebar'
@@ -14,9 +14,7 @@ class CoursePage extends Component {
   assignments = () => {
     return this.props.courses.find(course => {
       return course.id === parseInt(this.props.match.params.id)
-    }).assignments/*.sort( (a, b) => {
-      return new Date(a.og_date) - new Date(b.og_date);
-    });*/
+    }).assignments
   }
 
   render() {

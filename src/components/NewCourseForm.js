@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/Button'
 
 const NewCourseForm = (props) => {
 
-  const [validated, setValidated] = React.useState(false);
-
   const handleSubmit = (e) => {
     e.preDefault();
     props.onHide()
