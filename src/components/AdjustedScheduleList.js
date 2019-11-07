@@ -24,7 +24,7 @@ const AdjustedScheduleList = (props) => {
       {renderAsgmts()}
     </div>
     :
-    null
+    <p>Loading ....</p>
   )
 }
 

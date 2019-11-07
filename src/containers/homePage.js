@@ -8,20 +8,27 @@ class HomePage extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div className='offside'>
         <h2>Home Page</h2>
+        {
+          this.props.loading ?
+          <h5>Loading courses...</h5>
+          :
+          null
+        }
         <CourseCards
           courses={this.props.courses}
         />
-      <HomePageBtns/>
-      </Fragment>
+        <HomePageBtns/>
+      </div>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    courses: state.coursesReducer.courses
+    courses: state.coursesReducer.courses,
+    loading: state.coursesReducer.requesting
   }
 }
 

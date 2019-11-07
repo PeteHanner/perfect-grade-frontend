@@ -14,9 +14,9 @@ class CoursePage extends Component {
   assignments = () => {
     return this.props.courses.find(course => {
       return course.id === parseInt(this.props.match.params.id)
-    }).assignments.sort( (a, b) => {
+    }).assignments/*.sort( (a, b) => {
       return new Date(a.og_date) - new Date(b.og_date);
-    });
+    });*/
   }
 
   render() {

@@ -10,7 +10,7 @@ import { fetchCourses } from './actions/fetchCourses'
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchAssignments()
+    // this.props.fetchAssignments()
     this.props.fetchCourses()
   }
 
@@ -45,7 +45,7 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
   return {
-    fetchAssignments: () => dispatch(fetchAssignments()),
+    // fetchAssignments: () => dispatch(fetchAssignments()),
     fetchCourses: () => dispatch(fetchCourses())
   };
 }

@@ -31,8 +31,13 @@ code {
 }
 
 #home-page-btns {
-  float: right;
+  text-align: center;
+  margin: auto;
+  width: 20%;
   padding: 2%
+}
+#home-page-btn {
+  display: inline-block;
 }
 
 .offside {

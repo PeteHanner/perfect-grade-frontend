@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Button from 'react-bootstrap/Button'
 import { withRouter } from 'react-router-dom';
 
@@ -11,17 +11,23 @@ const HomePageBtns = (props) => {
   }
 
   return(
-    <ButtonGroup vertical id='home-page-btns'>
-      <Button size='sm' variant='info'>How To Use PerfectGrade</Button>
-      <br />
+    <ButtonToolbar id='home-page-btns'>
+      <Button
+        size='sm'
+        variant='info'
+        className='home-page-btn'
+      >
+        How To Use Perfect Grade
+      </Button>
       <Button
         size='lg'
         variant='success'
         onClick={flattenAssignments}
+        className='home-page-btn'
       >
         <strong>Make The Grade!</strong>
       </Button>
-    </ButtonGroup>
+    </ButtonToolbar>
   )
 }
 
