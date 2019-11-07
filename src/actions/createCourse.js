@@ -13,6 +13,6 @@ export function createCourse(formData) {
     dispatch({ type: 'CREATING_COURSE' });
     fetch('http://localhost:3001/courses', configObj)
     .then(r => r.json())
-    .then(data => console.log(data))
+    .then(newCourse => dispatch({ type: 'COURSE_CREATED', payload: newCourse }));
   }
 }
