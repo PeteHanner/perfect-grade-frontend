@@ -12,14 +12,15 @@ class HomePage extends Component {
         <h2>Home Page</h2>
         {
           this.props.loading ?
-          <h5>Loading courses...</h5>
+          <h5>Loading...</h5>
           :
-          null
+          <Fragment>
+          <CourseCards
+            courses={this.props.courses}
+          />
+          <HomePageBtns/>
+        </Fragment>
         }
-        <CourseCards
-          courses={this.props.courses}
-        />
-        <HomePageBtns/>
       </div>
     )
   }
