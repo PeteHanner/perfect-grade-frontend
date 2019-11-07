@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { CardGroup, Card } from 'react-bootstrap'
+import NewCourseForm from './NewCourseForm'
 
 
 const CourseCards = (props) => {
@@ -20,7 +21,11 @@ const CourseCards = (props) => {
         <Card
           key={course.id}
           data-id={course.id}
-          style={{ maxWidth: '15rem', backgroundColor:randColor() }}
+          style={{
+            maxWidth: '15rem',
+            minHeight: '10rem',
+            backgroundColor:randColor()
+          }}
           onClick={goToCoursePage}
         >
         <Card.Title data-id={course.id}>{course.name}</Card.Title>
@@ -29,13 +34,24 @@ const CourseCards = (props) => {
     })
   }
 
+  const [newCourseShow, setNewCourseShow] = React.useState(false);
+
   return (
     <CardGroup id='course-cards'>
-          {renderCourseCards()}
-          <Card bg='light' style={{ maxWidth: '15rem' }}>
-            <Card.Title>Add A New Course</Card.Title>
-          </Card>
-        </CardGroup>
+      {renderCourseCards()}
+      <Card
+        bg='light'
+        style={{ maxWidth: '15rem' }}
+        onClick={(e) => setNewCourseShow(true)
+        }
+      >
+        <Card.Title>Add A New Course</Card.Title>
+      </Card>
+      <NewCourseForm
+        show={newCourseShow}
+        onHide={()=> setNewCourseShow(false)}
+      />
+    </CardGroup>
   )
 }
 

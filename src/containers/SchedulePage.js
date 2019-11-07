@@ -7,23 +7,25 @@ import { fetchAssignments } from '../actions/fetchAssignments'
 class SchedulePage extends Component {
 
   componentDidMount() {
-    this.props.fetchAssignments()
-    // this.props.fetchCourses()
+    // debugger
+    if (this.props.assignments.length < 1) {
+      this.props.fetchAssignments()
+    }
   }
 
   render() {
     return (
       <div id='schedule-page' className='offside'>
-        <h2>Final Adjusted Schedule</h2>
-        {
-          this.props.loading ?
-            <h5>Loading assignments, please wait....</h5>
-          :
-          <AdjustedScheduleList
-            assignments={this.props.assignments}
-          />
-        }
-        <ScheduleSidebar />
+      <h2>Final Adjusted Schedule</h2>
+      {
+        this.props.loading ?
+        <h5>Loading assignments, please wait....</h5>
+        :
+        <AdjustedScheduleList
+        assignments={this.props.assignments}
+        />
+      }
+      <ScheduleSidebar />
       </div>
     )
   }

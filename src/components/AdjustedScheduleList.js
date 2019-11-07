@@ -8,10 +8,10 @@ const AdjustedScheduleList = (props) => {
       const day = entry[0]
       const asgs = entry[1]
       return(
-        <Fragment>
+        <Fragment key={day}>
           <h5>{day}</h5>
           <ul>
-            {asgs.map(a => <li>{a.description} <br/> ({a.course.name})</li>)}
+            {asgs.map(a => <li key={a.description}>{a.description} <br/> ({a.course.name})</li>)}
           </ul>
         </Fragment>
       )
