@@ -11,7 +11,7 @@ const ScheduleSideBar = (props) => {
 
   return(
     <div className='sidenav'>
-      <h4>Add An Assignment</h4>
+      <h4>Export To App</h4>
       <Button
         variant='outline-primary'
         size='sm'

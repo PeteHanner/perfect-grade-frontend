@@ -17,7 +17,7 @@ class SchedulePage extends Component {
         <h2>Final Adjusted Schedule</h2>
         {
           this.props.loading ?
-            <h5>Please wait, loading assignments</h5>
+            <h5>Loading assignments, please wait....</h5>
           :
           <AdjustedScheduleList
             assignments={this.props.assignments}

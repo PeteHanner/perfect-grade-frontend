@@ -23,11 +23,6 @@ const CourseCards = (props) => {
           style={{ maxWidth: '15rem', backgroundColor:randColor() }}
           onClick={goToCoursePage}
         >
-          <Card.Img
-            variant='top'
-            src='https://www.fillmurray.com/200/200'
-            data-id={course.id}
-          />
         <Card.Title data-id={course.id}>{course.name}</Card.Title>
         </Card>
       );
@@ -38,7 +33,6 @@ const CourseCards = (props) => {
     <CardGroup id='course-cards'>
           {renderCourseCards()}
           <Card bg='light' style={{ maxWidth: '15rem' }}>
-            <Card.Img variant='top' src='https://www.fillmurray.com/200/200' />
             <Card.Title>Add A New Course</Card.Title>
           </Card>
         </CardGroup>
