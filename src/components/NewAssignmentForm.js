@@ -32,7 +32,9 @@ const NewAssignmentForm = (props) => {
           onChange={e=> setAsgmtDesc(e.target.value)}
         />
       </Form.Group>
-      <Calendar/>
+      <Calendar
+        setAsgmtDate={setAsgmtDate}
+      />
       <Button variant='success' type='submit'>
         Submit
       </Button>
