@@ -9,26 +9,38 @@ export default function coursesReducer(
       return {
         ...state,
         courses: [...state.courses],
-        requesting: true,
+          requesting: true,
       };
     case 'COURSES_LOADED':
       return {
         ...state,
         courses: action.payload,
-        requesting: false
+          requesting: false
       };
     case 'CREATING_COURSE':
       return {
         ...state,
         courses: [...state.courses],
-        requesting: true
+          requesting: true
       };
     case 'COURSE_CREATED':
       // debugger
       return {
         ...state,
         courses: [...state.courses, action.payload],
-        requesting: false
+          requesting: false
+      };
+    case 'DELETING_COURSE':
+      return {
+        ...state,
+        courses: [...state.courses],
+          requesting: true
+      };
+    case 'COURSE_DELETED':
+      return {
+        ...state,
+        courses: [...state.courses],
+          requesting: false
       };
     default:
       return state;

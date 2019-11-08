@@ -8,11 +8,12 @@ export function createCourse(formData) {
     },
     body: JSON.stringify(formData)
   }
-  console.log(configObj)
+  
   return dispatch => {
     dispatch({ type: 'CREATING_COURSE' });
     fetch('http://localhost:3001/courses', configObj)
     .then(r => r.json())
-    .then(newCourse => dispatch({ type: 'COURSE_CREATED', payload: newCourse }));
+    .then(newCourse => dispatch({ type: 'COURSE_CREATED', payload: newCourse }))
+    .catch(error => alert(`There was an error (${error.message})`));
   }
 }

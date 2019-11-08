@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react'
-import {withRouter } from 'react-router-dom'
+import React, { Fragment } from 'react'
+import { withRouter } from 'react-router-dom'
 
 const AdjustedScheduleList = (props) => {
 
@@ -7,7 +7,7 @@ const AdjustedScheduleList = (props) => {
     return props.assignments.map(entry => {
       const day = entry[0]
       const asgs = entry[1]
-      return(
+      return (
         <Fragment key={day}>
           <h5>{day}</h5>
           <ul>
@@ -18,13 +18,12 @@ const AdjustedScheduleList = (props) => {
     })
   }
 
-  return(
+  return (
     props.assignments !== [] ?
     <div>
       {renderAsgmts()}
-    </div>
-    :
-    <p>Loading ....</p>
+    </div> :
+    null
   )
 }
 

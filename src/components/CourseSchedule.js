@@ -1,4 +1,9 @@
 import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import { deleteCourse } from '../actions/deleteCourse'
+
 
 const CourseSchedule = (props) => {
 
@@ -18,16 +23,48 @@ const CourseSchedule = (props) => {
     });
   }
 
+  const deleteButton = () => {
+    return(
+      <Button
+        variant='danger'
+        onClick={deleteCourse}
+      >
+        Delete This Course
+      </Button>
+    )
+  }
+
+  const deleteCourse = (e) => {
+    e.preventDefault()
+    const formData = {
+      courseId: props.match.params.id
+    }
+    props.deleteCourse(formData)
+    props.history.push('/')
+  }
+
   return (
     <div >
       {
         props.assignments.length > 0 ?
-          renderAssignments()
+          <Fragment>
+            {renderAssignments()}
+            {deleteButton()}
+          </Fragment>
         :
-        <p>No assignments added yet.</p>
+        <Fragment>
+          <p>No assignments added yet.</p>
+          {deleteButton()}
+        </Fragment>
       }
     </div>
   )
 }
 
-export default CourseSchedule
+function mapDispatchToProps(dispatch) {
+  return {
+    deleteCourse: (formData) => dispatch(deleteCourse(formData))
+  };
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(CourseSchedule))

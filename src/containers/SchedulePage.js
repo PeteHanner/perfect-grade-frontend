@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import AdjustedScheduleList from '../components/AdjustedScheduleList'
 import ScheduleSidebar from '../components/ScheduleSidebar'
 import { fetchAssignments } from '../actions/fetchAssignments'
+import Spinner from 'react-bootstrap/Spinner'
 
 class SchedulePage extends Component {
 
@@ -19,7 +20,14 @@ class SchedulePage extends Component {
       <h2>Final Adjusted Schedule</h2>
       {
         this.props.loading ?
-        <h5>Loading assignments, please wait....</h5>
+        <Fragment>
+          <h6>Magic elves are squishing your schedule</h6>
+          <h6>Be patient please</h6>
+          <h6>This takes a while and our elves are unionized</h6>
+          <Spinner animation='border'>
+            <span className='sr-only'>Loading....</span>
+          </Spinner>
+        </Fragment>
         :
         <AdjustedScheduleList
         assignments={this.props.assignments}
