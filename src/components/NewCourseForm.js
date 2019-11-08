@@ -52,13 +52,13 @@ const NewCourseForm = (props) => {
         </Form>
       </Modal.Body>
     </Modal>
-  )
-}
+      )
+    }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    createCourse: (formData) => dispatch(createCourse(formData))
-  };
-}
+    function mapDispatchToProps(dispatch) {
+      return {
+        createCourse: (formData) => dispatch(createCourse(formData))
+      };
+    }
 
-export default connect(null, mapDispatchToProps)(NewCourseForm)
+    export default connect(null, mapDispatchToProps)(NewCourseForm)
