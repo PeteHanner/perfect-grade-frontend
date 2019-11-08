@@ -13,10 +13,10 @@ const CourseSidebar = (props) => {
   return(
     <div className='sidenav'>
       <h4>Add An Assignment</h4>
-      <NewAssignmentForm />
-      <br/>
       <p className='help-text'>As you add assignments, make sure to enter the due date as assigned.</p>
       <p className='help-text'>Your finalized flat schedule will automatically update everything with the dates you should actually complete the assignment.</p>
+      <br/>
+      <NewAssignmentForm />
       <Button
         className='home-btn'
         variant='outline-primary'
