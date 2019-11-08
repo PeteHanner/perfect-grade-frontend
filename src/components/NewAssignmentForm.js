@@ -1,6 +1,8 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 
 const NewAssignmentForm = (props) => {
 
@@ -11,7 +13,7 @@ const NewAssignmentForm = (props) => {
   }
 
   return(
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group controlId='newAssignment'>
         <Form.Label>Assignment Description: </Form.Label>
         <Form.Control
@@ -21,6 +23,9 @@ const NewAssignmentForm = (props) => {
           onChange={e=> setAsgmtDesc(e.target.value)}
         />
       </Form.Group>
+      <Button variant='success' type='submit'>
+        Submit
+      </Button>
     </Form>
   )
 }

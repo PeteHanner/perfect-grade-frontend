@@ -55,3 +55,16 @@ code {
   background-color: lightblue;
   text-align: center;
 }
+
+.home-btn {
+  position: absolute;
+  bottom: 1%;
+  right: 38%;
+  margin: auto;
+}
+
+.help-text {
+  display: inline-block;
+  max-width: 70%;
+  font-size: 12px;
+}
