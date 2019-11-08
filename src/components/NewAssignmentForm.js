@@ -23,10 +23,11 @@ const NewAssignmentForm = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId='newAssignment'>
-        <Form.Label>Assignment Description: </Form.Label>
+        <Form.Label><strong>Assignment Description: </strong></Form.Label>
         <Form.Control
           type='text'
           placeholder="e.g. 'Read pp. 102-143'"
+          style={{maxWidth:'95%', display:'inline-block'}}
           required
           value={asgmtDesc}
           onChange={e=> setAsgmtDesc(e.target.value)}

@@ -41,7 +41,7 @@ const NewCourseForm = (props) => {
             <Form.Label>Course Title:</Form.Label>
             <Form.Control
               type='text'
-              placeholder='Underwater Basket Weaving 301'
+              placeholder='e.g. Underwater Basket Weaving 301'
               required
               onChange={(e)=> setCourseTitle(e.target.value)}
             />
