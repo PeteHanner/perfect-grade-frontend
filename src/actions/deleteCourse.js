@@ -8,13 +8,11 @@ export function deleteCourse(formData) {
     },
   }
 
-  console.log(configObj)
-
   return dispatch => {
     dispatch({ type: 'DELETING_COURSE' });
     fetch(`http://localhost:3001/courses/${formData.courseId}`, configObj)
     .then(r => r.json())
-    .then(newCourse => dispatch({ type: 'COURSE_DELETED' }))
+    .then(deletedCourse => dispatch({ type: 'COURSE_DELETED', payload: deletedCourse }))
     .catch(error => alert(`There was an error (${error.message})`));
   }
 }

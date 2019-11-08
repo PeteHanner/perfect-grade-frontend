@@ -39,7 +39,9 @@ export default function coursesReducer(
     case 'COURSE_DELETED':
       return {
         ...state,
-        courses: [...state.courses],
+        courses: [
+          ...state.courses.filter(c => c.id !== action.payload.id)
+        ],
           requesting: false
       };
     default:
