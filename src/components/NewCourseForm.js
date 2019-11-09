@@ -42,6 +42,7 @@ const NewCourseForm = (props) => {
             <Form.Control
               type='text'
               placeholder='e.g. Underwater Basket Weaving 301'
+              value={courseTitle}
               required
               onChange={(e)=> setCourseTitle(e.target.value)}
             />

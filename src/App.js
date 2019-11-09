@@ -17,17 +17,17 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route
-            exact path='/'
-            component={HomePage}
-          />
-          <Route
             exact path='/courses/:id'
             component={CoursePage}
           />
-        <Route
-          exact path ='/flattened'
-          component={SchedulePage}
-        />
+          <Route
+            exact path ='/flattened'
+            component={SchedulePage}
+          />
+          <Route
+            path='/'
+            component={HomePage}
+          />
         </Switch>
       </BrowserRouter>
     )
