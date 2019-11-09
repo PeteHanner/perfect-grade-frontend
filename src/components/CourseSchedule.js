@@ -15,9 +15,15 @@ const CourseSchedule = (props) => {
         <Fragment key={date}>
           <h4>{date}</h4>
           <ul>
-            {asgmt_arr.map(a => <li key={a.description}>{a.description}</li>)}
+            {asgmt_arr.map(a => {
+              return(
+                <Fragment>
+                  <li key={a.description}>{a.description}</li>
+                  <MDBIcon icon="pen"/>
+                </Fragment>
+              )
+            })}
           </ul>
-          <MDBIcon icon="camera-retro"/>
         </Fragment>
       )
     });
