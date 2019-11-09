@@ -18,8 +18,10 @@ const CourseSchedule = (props) => {
             {asgmt_arr.map(a => {
               return(
                 <Fragment>
-                  <li key={a.description}>{a.description}</li>
-                  <MDBIcon icon="pen"/>
+                  <li key={a.description}>
+                    {a.description}
+                    <MDBIcon icon="pen" className="edit-icon"  />
+                  </li>
                 </Fragment>
               )
             })}

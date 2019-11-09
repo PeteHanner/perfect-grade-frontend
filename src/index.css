@@ -68,3 +68,13 @@ code {
   max-width: 70%;
   font-size: 12px;
 }
+
+.edit-icon {
+  opacity: 0.7;
+  color: goldenrod;
+  padding-left: 1rem;
+}
+.edit-icon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
