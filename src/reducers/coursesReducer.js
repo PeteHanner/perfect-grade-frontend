@@ -24,7 +24,6 @@ export default function coursesReducer(
       requesting: true
     };
     case 'COURSE_CREATED':
-    // debugger
     return {
       ...state,
       courses: [...state.courses, action.payload],

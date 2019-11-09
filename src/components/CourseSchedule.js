@@ -8,7 +8,6 @@ import { deleteCourse } from '../actions/deleteCourse'
 const CourseSchedule = (props) => {
 
   const renderAssignments = () => {
-    // debugger
     return props.assignments.map(arr => {
       const date = arr[0]
       const asgmt_arr = arr[1]

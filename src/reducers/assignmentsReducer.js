@@ -20,7 +20,7 @@ export default function assignmentsReducer(
     case 'CREATING_ASSIGNMENT':
     return {
       ...state,
-      // assignments: [...state.assignments],
+      assignments: [...state.assignments],
       requesting: true
     };
     case 'ASSIGNMENT_CREATED':
