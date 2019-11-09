@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { deleteCourse } from '../actions/deleteCourse'
-
+import { MDBIcon } from "mdbreact";
 
 const CourseSchedule = (props) => {
 
@@ -11,19 +11,20 @@ const CourseSchedule = (props) => {
     return props.assignments.map(arr => {
       const date = arr[0]
       const asgmt_arr = arr[1]
-      return(
+      return (
         <Fragment key={date}>
           <h4>{date}</h4>
           <ul>
             {asgmt_arr.map(a => <li key={a.description}>{a.description}</li>)}
           </ul>
+          <MDBIcon icon="camera-retro"/>
         </Fragment>
       )
     });
   }
 
   const deleteButton = () => {
-    return(
+    return (
       <Button
         variant='danger'
         onClick={deleteCourse}
