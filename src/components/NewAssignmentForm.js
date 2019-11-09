@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Calendar from './Calendar'
 import moment from 'moment'
+import { connect } from 'react-redux'
+import { createAssignment } from '../actions/createAssignment'
 
 const NewAssignmentForm = (props) => {
 
@@ -19,7 +21,9 @@ const NewAssignmentForm = (props) => {
     }
     setAsgmtDesc('')
     console.log(formData)
+    props.createAssignment(formData)
   }
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId='newAssignment'>
@@ -43,4 +47,10 @@ const NewAssignmentForm = (props) => {
   )
 }
 
-export default withRouter(NewAssignmentForm)
+const mapDispatchToProps = dispatch => {
+  return {
+    createAssignment: formData => dispatch(createAssignment(formData))
+  };
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(NewAssignmentForm))
