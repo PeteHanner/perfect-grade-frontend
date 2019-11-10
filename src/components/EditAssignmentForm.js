@@ -4,7 +4,8 @@ import Form from 'react-bootstrap/Form'
 
 const EditAssignmentForm = (props) => {
   const {dueDate, ...others} = props
-  const [newDesc, setNewDesc] = React.useState('')
+  const [newDesc, setNewDesc] = React.useState(props.description)
+  console.log(props.description)
 
   return (
     <Modal
