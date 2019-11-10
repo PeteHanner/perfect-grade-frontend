@@ -4,34 +4,9 @@ import { withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { deleteCourse } from '../actions/deleteCourse'
 import { MDBIcon } from "mdbreact";
+import EditAssignmentForm from './EditAssignmentForm'
 
 const CourseSchedule = (props) => {
-
-  const renderAssignments = () => {
-    const uuidv1 = require('uuid/v1');
-
-    return props.assignments.map(arr => {
-      const date = arr[0]
-      const asgmt_arr = arr[1]
-      return (
-        <Fragment key={uuidv1()}>
-          <h4>{date}</h4>
-          <ul>
-            {asgmt_arr.map(a => {
-              return(
-                <Fragment key={uuidv1()}>
-                  <li key={uuidv1()}>
-                    {a.description}
-                    <MDBIcon icon="pen" className="edit-icon"  />
-                  </li>
-                </Fragment>
-              )
-            })}
-          </ul>
-        </Fragment>
-      )
-    });
-  }
 
   const deleteButton = () => {
     return (
@@ -53,11 +28,61 @@ const CourseSchedule = (props) => {
     props.history.push('/')
   }
 
+  const [showEditForm, setShowEditForm] = React.useState(false);
+  const [asgmtId, setAsgmtId] = React.useState('');
+  const [asgmtDesc, setAsgmtDesc] = React.useState('');
+  const [dueDate, setDueDate] = React.useState('');
+
+  const editAssignment = (id, desc, date) => {
+    setAsgmtId(id);
+    setAsgmtDesc(desc);
+    setDueDate(date);
+    console.log(asgmtId, asgmtDesc, dueDate)
+  }
+
+  const renderAssignments = () => {
+    const uuidv1 = require('uuid/v1');
+
+    return props.assignments.map(arr => {
+      const date = arr[0]
+      const asgmt_arr = arr[1]
+      return (
+        <Fragment key={uuidv1()}>
+          <h4>{date}</h4>
+          <ul>
+            {asgmt_arr.map(a => {
+              return(
+                <Fragment key={uuidv1()}>
+                  <li key={uuidv1()}>
+                    {a.description}
+                    <MDBIcon
+                      icon="pen"
+                      className="edit-icon"
+                      onClick={() => editAssignment(a.id, a.description, date)}
+                    />
+                  </li>
+                </Fragment>
+              )
+            })}
+          </ul>
+        </Fragment>
+      )
+    });
+  }
+
+
   return (
     <div >
       {
         props.assignments.length > 0 ?
           <Fragment>
+            <EditAssignmentForm
+              show={showEditForm}
+              id={asgmtId}
+              description={asgmtDesc}
+              dueDate={dueDate}
+              onHide={()=> setShowEditForm(false)}
+            />
             {renderAssignments()}
             {deleteButton()}
           </Fragment>
