@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import DatePicker from 'react-datepicker'
+import moment from 'moment'
 
 
 const EditAssignmentForm = (props) => {
@@ -18,7 +19,8 @@ const EditAssignmentForm = (props) => {
     e.preventDefault()
     const formData = {
       id: props.id,
-      newDesc: newDesc
+      newDesc: newDesc,
+      newDate: moment(newDate).format('MMMM D YYYY'),
     }
     console.log(formData)
   }
