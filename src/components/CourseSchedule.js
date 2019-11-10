@@ -6,6 +6,7 @@ import { deleteCourse } from '../actions/deleteCourse'
 import { MDBIcon } from "mdbreact";
 import EditAssignmentForm from './EditAssignmentForm'
 
+
 const CourseSchedule = (props) => {
 
   const deleteButton = () => {
@@ -39,7 +40,7 @@ const CourseSchedule = (props) => {
       setState({
         id: id,
         desc: desc,
-        dueDate: date,
+        dueDate: Date.parse(date),
         showEditForm: true
       })
     }
@@ -74,13 +75,11 @@ const CourseSchedule = (props) => {
       });
     }
 
-
     return (
       <div >
         {
           props.assignments.length > 0 ?
             <Fragment>
-
               <EditAssignmentForm
                 show={state.showEditForm}
                 id={state.id}
@@ -89,11 +88,11 @@ const CourseSchedule = (props) => {
                 onHide={()=> setState({
                   id: '',
                   desc: '',
-                  dueDate: '',
+                  dueDate: new Date(),
                   showEditForm: false
                 })}
               />
-            {renderAssignments()}
+              {renderAssignments()}
             {deleteButton()}
           </Fragment>
           :
