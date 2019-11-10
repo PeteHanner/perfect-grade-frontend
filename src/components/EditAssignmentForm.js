@@ -32,6 +32,7 @@ const EditAssignmentForm = (props) => {
   return (
     <Modal
       {...others}
+      style={{textAlign:'center'}}
       centered
     >
       <Modal.Header closeButton>
@@ -56,6 +57,7 @@ const EditAssignmentForm = (props) => {
               onChange={date => {
                 setNewDate(date);
               }}
+              style={{display: 'inline'}}
               inline
             />
           </Form.Group>
@@ -65,6 +67,13 @@ const EditAssignmentForm = (props) => {
             style={{float:'right'}}
           >
             Submit
+          </Button>
+          <Button
+            variant='danger'
+            type='button'
+            style={{float:'left'}}
+          >
+            Delete This Assignment
           </Button>
         </Form>
       </Modal.Body>
