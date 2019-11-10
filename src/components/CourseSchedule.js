@@ -8,17 +8,19 @@ import { MDBIcon } from "mdbreact";
 const CourseSchedule = (props) => {
 
   const renderAssignments = () => {
+    const uuidv1 = require('uuid/v1');
+
     return props.assignments.map(arr => {
       const date = arr[0]
       const asgmt_arr = arr[1]
       return (
-        <Fragment key={date}>
+        <Fragment key={uuidv1()}>
           <h4>{date}</h4>
           <ul>
             {asgmt_arr.map(a => {
               return(
-                <Fragment>
-                  <li key={a.description}>
+                <Fragment key={uuidv1()}>
+                  <li key={uuidv1()}>
                     {a.description}
                     <MDBIcon icon="pen" className="edit-icon"  />
                   </li>
