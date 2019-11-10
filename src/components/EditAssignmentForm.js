@@ -6,10 +6,10 @@ import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import { connect } from 'react-redux'
 import {editAssignment} from '../actions/editAssignment'
-
+import { fetchCourses } from '../actions/fetchCourses'
 
 const EditAssignmentForm = (props) => {
-  const {dueDate, editAssignment, ...others} = props
+  const {dueDate, editAssignment, updateCourses, ...others} = props
   const [newDesc, setNewDesc] = React.useState('')
   const [newDate, setNewDate] = React.useState(new Date())
   React.useEffect(() => {
@@ -25,6 +25,7 @@ const EditAssignmentForm = (props) => {
       newDate: moment(newDate).format('MMMM D YYYY'),
     }
     props.editAssignment(formData)
+    props.updateCourses()
     props.onHide()
   }
 
@@ -73,7 +74,8 @@ const EditAssignmentForm = (props) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    editAssignment: formData => dispatch(editAssignment(formData))
+    editAssignment: formData => dispatch(editAssignment(formData)),
+    updateCourses: () => dispatch(fetchCourses())
   };
 }
 

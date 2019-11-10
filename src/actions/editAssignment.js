@@ -9,8 +9,6 @@ export function editAssignment(formData) {
     body: JSON.stringify(formData)
   }
 
-  console.log(formData)
-
   return dispatch => {
     dispatch({type: 'EDITING_ASSIGNMENT'});
     fetch(`http://localhost:3001/assignments/${formData.id}`, configObj)
