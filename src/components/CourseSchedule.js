@@ -30,12 +30,14 @@ const CourseSchedule = (props) => {
       props.history.push('/')
     }
 
-    const [state, setState] = React.useState({
+    const defaultState = {
       id: '',
       desc: '',
       dueDate: '',
       showEditForm: false
-    })
+    }
+
+    const [state, setState] = React.useState(defaultState)
 
     const editAssignment = (id, desc, date) => {
       let calDate = new Date(date)
@@ -88,12 +90,7 @@ const CourseSchedule = (props) => {
                 id={state.id}
                 description={state.desc}
                 dueDate={state.dueDate}
-                onHide={()=> setState({
-                  id: '',
-                  desc: '',
-                  dueDate: new Date(),
-                  showEditForm: false
-                })}
+                onHide={()=> setState(defaultState)}
               />
               {renderAssignments()}
             {deleteButton()}

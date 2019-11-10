@@ -4,10 +4,12 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
+import { connect } from 'react-redux'
+import {editAssignment} from '../actions/editAssignment'
 
 
 const EditAssignmentForm = (props) => {
-  const {dueDate, ...others} = props
+  const {dueDate, editAssignment, ...others} = props
   const [newDesc, setNewDesc] = React.useState('')
   const [newDate, setNewDate] = React.useState(new Date())
   React.useEffect(() => {
@@ -15,14 +17,15 @@ const EditAssignmentForm = (props) => {
     setNewDate(props.dueDate)
   }, [props])
 
-  const editAssignment = (e) => {
+  const handleEditAssignment = (e) => {
     e.preventDefault()
     const formData = {
       id: props.id,
       newDesc: newDesc,
       newDate: moment(newDate).format('MMMM D YYYY'),
     }
-    console.log(formData)
+    props.editAssignment(formData)
+    props.onHide()
   }
 
   return (
@@ -35,7 +38,7 @@ const EditAssignmentForm = (props) => {
       </Modal.Header>
       <Modal.Body>
         <Form
-          onSubmit={editAssignment}
+          onSubmit={handleEditAssignment}
         >
           <Form.Group controlId='assignmentDescription'>
             <Form.Label>Description: </Form.Label>
@@ -68,4 +71,10 @@ const EditAssignmentForm = (props) => {
   )
 }
 
-export default EditAssignmentForm
+const mapDispatchToProps = dispatch => {
+  return {
+    editAssignment: formData => dispatch(editAssignment(formData))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(EditAssignmentForm)
