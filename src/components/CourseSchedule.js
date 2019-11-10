@@ -28,16 +28,20 @@ const CourseSchedule = (props) => {
     props.history.push('/')
   }
 
-  const [showEditForm, setShowEditForm] = React.useState(false);
-  const [asgmtId, setAsgmtId] = React.useState('');
-  const [asgmtDesc, setAsgmtDesc] = React.useState('');
-  const [dueDate, setDueDate] = React.useState('');
+  const [state, setState] = React.useState({
+    id: '',
+    desc: '',
+    dueDate: '',
+    showEditForm: false
+  })
 
   const editAssignment = (id, desc, date) => {
-    setAsgmtId(id);
-    setAsgmtDesc(desc);
-    setDueDate(date);
-    console.log(asgmtId, asgmtDesc, dueDate)
+    setState({
+      id: id,
+      desc: desc,
+      dueDate: date,
+      showEditForm: true
+    })
   }
 
   const renderAssignments = () => {
@@ -77,11 +81,11 @@ const CourseSchedule = (props) => {
         props.assignments.length > 0 ?
           <Fragment>
             <EditAssignmentForm
-              show={showEditForm}
-              id={asgmtId}
-              description={asgmtDesc}
-              dueDate={dueDate}
-              onHide={()=> setShowEditForm(false)}
+              show={state.showEditForm}
+              id={state.id}
+              description={state.desc}
+              dueDate={state.dueDate}
+              onHide={()=> setState({...state, showEditForm: false})}
             />
             {renderAssignments()}
             {deleteButton()}

@@ -4,10 +4,7 @@ import Form from 'react-bootstrap/Form'
 
 const EditAssignmentForm = (props) => {
   const {dueDate, ...others} = props
-  const [desc, setDesc] = React.useState(`${props.description}`)
-  const [newDate, setNewDate] = React.useState(props.newDate)
 
-  // console.log(props.description)
   return (
     <Modal
       {...others}
@@ -23,8 +20,8 @@ const EditAssignmentForm = (props) => {
             <Form.Control
               required
               type='text'
-              value={desc}
-              onChange={e => setDesc(e.target.value)}
+              value={props.description}
+              // onChange={e => setDesc(e.target.value)}
             />
           </Form.Group>
         </Form>
