@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
+import moment from 'moment'
 
 const AdjustedScheduleList = (props) => {
 
@@ -9,7 +10,7 @@ const AdjustedScheduleList = (props) => {
       const asgs = entry[1]
       return (
         <Fragment key={day}>
-          <h5>{day}</h5>
+          <h5>{moment(day).format('dddd MMM. D, YYYY')}</h5>
           <ul>
             {asgs.map(a => <li key={a.description}>{a.description} <br/> ({a.course.name})</li>)}
           </ul>

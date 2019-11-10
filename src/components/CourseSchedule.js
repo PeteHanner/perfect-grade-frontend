@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 import { deleteCourse } from '../actions/deleteCourse'
 import { MDBIcon } from "mdbreact";
 import EditAssignmentForm from './EditAssignmentForm'
+import moment from 'moment'
 
 
 const CourseSchedule = (props) => {
@@ -53,7 +54,7 @@ const CourseSchedule = (props) => {
         const asgmt_arr = arr[1]
         return (
           <Fragment key={uuidv1()}>
-            <h4>{date}</h4>
+            <h4>{moment(date).format('dddd MMM. D, YYYY')}</h4>
             <ul>
               {asgmt_arr.map(a => {
                 return(
