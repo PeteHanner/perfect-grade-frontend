@@ -38,10 +38,12 @@ const CourseSchedule = (props) => {
     })
 
     const editAssignment = (id, desc, date) => {
+      let calDate = new Date(date)
+      calDate.setDate(calDate.getDate() + 1);
       setState({
         id: id,
         desc: desc,
-        dueDate: Date.parse(date),
+        dueDate: calDate,
         showEditForm: true
       })
     }
