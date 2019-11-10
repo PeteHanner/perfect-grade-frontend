@@ -29,6 +29,18 @@ export default function assignmentsReducer(
         assignments: [...state.assignments, action.payload],
           requesting: false
       };
+    case 'EDITING_ASSIGNMENT':
+      return {
+        ...state,
+        assignments: [...state.assignments],
+          requesting: true,
+      };
+    case 'ASSIGNMENT_EDITED':
+      return {
+        ...state,
+        assignments: [...state.assignments, action.payload],
+        requesting: false
+      };
     default:
       return state;
   }
