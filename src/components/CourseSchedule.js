@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { deleteCourse } from '../actions/deleteCourse'
+import { fetchCourses } from '../actions/fetchCourses'
 import { MDBIcon } from "mdbreact";
 import EditAssignmentForm from './EditAssignmentForm'
 import moment from 'moment'
 
 
 const CourseSchedule = (props) => {
-
   const deleteButton = () => {
     return (
       <Button

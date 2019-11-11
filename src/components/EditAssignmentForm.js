@@ -13,10 +13,15 @@ const EditAssignmentForm = (props) => {
   const {dueDate, editAssignment, deleteAssignment, updateCourses, ...others} = props
   const [newDesc, setNewDesc] = React.useState('')
   const [newDate, setNewDate] = React.useState(new Date())
+
   React.useEffect(() => {
     setNewDesc(props.description);
     setNewDate(props.dueDate)
   }, [props])
+
+  React.useEffect(() => {
+    props.updateCourses()
+  }, [props.assignments])
 
   const handleEditAssignment = (e) => {
     e.preventDefault()
@@ -26,16 +31,16 @@ const EditAssignmentForm = (props) => {
       newDate: moment(newDate).format('MMMM D YYYY'),
     }
     props.editAssignment(formData)
-    props.updateCourses()
     props.onHide()
+    // props.updateCourses()
   }
 
   const handleDeleteAssignment = (e) => {
     e.preventDefault()
     const formData = {asgmtId: props.id}
     props.deleteAssignment(formData)
-    props.updateCourses()
     props.onHide()
+    // props.updateCourses()
   }
 
   return (
@@ -91,6 +96,12 @@ const EditAssignmentForm = (props) => {
   )
 }
 
+const mapStateToProps = state => {
+  return {
+    assignments: state.assignmentsReducer.assignments
+  };
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     editAssignment: formData => dispatch(editAssignment(formData)),
@@ -99,4 +110,4 @@ const mapDispatchToProps = dispatch => {
   };
 }
 
-export default connect(null, mapDispatchToProps)(EditAssignmentForm)
+export default connect(mapStateToProps, mapDispatchToProps)(EditAssignmentForm)
