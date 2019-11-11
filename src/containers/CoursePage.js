@@ -39,6 +39,7 @@ class CoursePage extends Component {
         <EditCourseForm
           show={this.state.showEditForm}
           ogTitle={this.courseTitle()}
+          courses={this.props.courses}
           courseId={this.props.match.params.id}
           onHide={()=>this.setState({showEditForm:false})}
         />
@@ -66,6 +67,5 @@ function mapStateToProps(state) {
     courses: state.coursesReducer.courses
   }
 }
-
 
 export default connect(mapStateToProps)(CoursePage)

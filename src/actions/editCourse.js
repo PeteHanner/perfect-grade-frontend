@@ -1,3 +1,5 @@
+import {fetchCourses} from './fetchCourses'
+
 export function editCourse(formData) {
 
   const configObj = {
@@ -15,7 +17,10 @@ export function editCourse(formData) {
     dispatch({type: 'EDITING_COURSE'});
     fetch(`http://localhost:3001/courses/${formData.courseId}`, configObj)
     .then(r => r.json())
-    .then(newCourse => dispatch({ type: 'COURSE_EDITED', payload: newCourse}))
+    .then(newCourse => {
+      dispatch({ type: 'COURSE_EDITED', payload: newCourse});
+      dispatch(fetchCourses())
+    })
     .catch(error => alert(`There was an error (${error.message})`))
   }
 }

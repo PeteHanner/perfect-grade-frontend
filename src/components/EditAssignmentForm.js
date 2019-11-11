@@ -32,7 +32,6 @@ const EditAssignmentForm = (props) => {
     }
     props.editAssignment(formData)
     props.onHide()
-    // props.updateCourses()
   }
 
   const handleDeleteAssignment = (e) => {
@@ -40,7 +39,6 @@ const EditAssignmentForm = (props) => {
     const formData = {asgmtId: props.id}
     props.deleteAssignment(formData)
     props.onHide()
-    // props.updateCourses()
   }
 
   return (

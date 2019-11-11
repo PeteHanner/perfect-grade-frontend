@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 import {editCourse} from '../actions/editCourse'
-
+import {fetchCourses} from '../actions/fetchCourses'
 
 const EditCourseForm = (props) => {
   const [newTitle, setNewTitle] = React.useState(props.ogTitle)
@@ -65,7 +65,8 @@ const EditCourseForm = (props) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    editCourse: formData => dispatch(editCourse(formData))
+    editCourse: formData => dispatch(editCourse(formData)),
+    fetchCourses: () => dispatch(fetchCourses())
   };
 }
 
