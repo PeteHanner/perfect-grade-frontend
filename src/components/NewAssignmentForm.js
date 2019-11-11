@@ -6,7 +6,6 @@ import Calendar from './Calendar'
 import moment from 'moment'
 import { connect } from 'react-redux'
 import { createAssignment } from '../actions/createAssignment'
-import { fetchCourses } from '../actions/fetchCourses'
 
 const NewAssignmentForm = (props) => {
 
@@ -22,7 +21,6 @@ const NewAssignmentForm = (props) => {
     }
     setAsgmtDesc('')
     props.createAssignment(formData)
-    props.updateCourses()
   }
 
   return (
@@ -51,7 +49,6 @@ const NewAssignmentForm = (props) => {
 const mapDispatchToProps = dispatch => {
   return {
     createAssignment: formData => dispatch(createAssignment(formData)),
-    updateCourses: () => dispatch(fetchCourses())
   };
 }
 

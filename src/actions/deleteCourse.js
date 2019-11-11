@@ -1,3 +1,5 @@
+import {fetchCourses} from './fetchCourses'
+
 export function deleteCourse(formData) {
 
   const configObj = {
@@ -12,7 +14,10 @@ export function deleteCourse(formData) {
     dispatch({ type: 'DELETING_COURSE' });
     fetch(`http://localhost:3001/courses/${formData.courseId}`, configObj)
     .then(r => r.json())
-    .then(deletedCourse => dispatch({ type: 'COURSE_DELETED', payload: deletedCourse }))
+    .then(deletedCourse => {
+      dispatch({ type: 'COURSE_DELETED', payload: deletedCourse });
+      dispatch(fetchCourses())
+    })
     .catch(error => alert(`There was an error (${error.message})`));
   }
 }
