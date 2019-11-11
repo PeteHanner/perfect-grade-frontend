@@ -10,25 +10,6 @@ import moment from 'moment'
 
 
 const CourseSchedule = (props) => {
-  const deleteButton = () => {
-    return (
-      <Button
-        variant='danger'
-        onClick={deleteCourse}
-        >
-          Delete This Course
-        </Button>
-      )
-    }
-
-    const deleteCourse = (e) => {
-      e.preventDefault()
-      const formData = {
-        courseId: props.match.params.id
-      }
-      props.deleteCourse(formData)
-      props.history.push('/')
-    }
 
     const defaultState = {
       id: '',
@@ -93,22 +74,14 @@ const CourseSchedule = (props) => {
                 onHide={()=> setState(defaultState)}
               />
               {renderAssignments()}
-            {deleteButton()}
-          </Fragment>
+            </Fragment>
           :
           <Fragment>
             <p>No assignments added yet.</p>
-            {deleteButton()}
           </Fragment>
         }
       </div>
     )
   }
 
-  function mapDispatchToProps(dispatch) {
-    return {
-      deleteCourse: (formData) => dispatch(deleteCourse(formData))
-    };
-  }
-
-  export default withRouter(connect(null, mapDispatchToProps)(CourseSchedule))
+  export default withRouter(CourseSchedule)

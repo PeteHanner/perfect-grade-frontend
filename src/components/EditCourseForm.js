@@ -3,12 +3,22 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
-import {editCourse} from '../actions/editCourse'
-import {fetchCourses} from '../actions/fetchCourses'
+import { withRouter } from 'react-router-dom'
+import { editCourse } from '../actions/editCourse'
+import { fetchCourses } from '../actions/fetchCourses'
+import { deleteCourse } from '../actions/deleteCourse'
 
 const EditCourseForm = (props) => {
   const [newTitle, setNewTitle] = React.useState(props.ogTitle)
-  const {ogTitle, courseId, editCourse, ...others} = props
+  const {
+    ogTitle,
+    courseId,
+    editCourse,
+    deleteCourse,
+    fetchCourses,
+    staticContext,
+    ...others
+  } = props
 
   const handleEditCourse = (e) => {
     e.preventDefault()
@@ -18,6 +28,15 @@ const EditCourseForm = (props) => {
     }
     props.editCourse(formData)
     props.onHide()
+  }
+
+  const handleDeleteCourse = (e) => {
+    e.preventDefault()
+    const formData = {
+      courseId: props.courseId
+    }
+    props.deleteCourse(formData)
+    props.history.push('/')
   }
 
   return (
@@ -53,7 +72,7 @@ const EditCourseForm = (props) => {
             variant='danger'
             type='button'
             style={{float:'left'}}
-            // onClick={handleDeleteCourse}
+            onClick={handleDeleteCourse}
           >
             Delete This Course
           </Button>
@@ -66,8 +85,9 @@ const EditCourseForm = (props) => {
 function mapDispatchToProps(dispatch) {
   return {
     editCourse: formData => dispatch(editCourse(formData)),
-    fetchCourses: () => dispatch(fetchCourses())
+    fetchCourses: () => dispatch(fetchCourses()),
+    deleteCourse: (formData) => dispatch(deleteCourse(formData))
   };
 }
 
-export default connect(null, mapDispatchToProps)(EditCourseForm)
+export default withRouter(connect(null, mapDispatchToProps)(EditCourseForm))
