@@ -8,7 +8,6 @@ import Spinner from 'react-bootstrap/Spinner'
 class SchedulePage extends Component {
 
   componentDidMount() {
-    // debugger
     if (this.props.assignments.length < 1) {
       this.props.fetchAssignments()
     }
@@ -49,7 +48,6 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return {
     fetchAssignments: () => dispatch(fetchAssignments()),
-    // fetchCourses: () => dispatch(fetchCourses())
   };
 }
 
