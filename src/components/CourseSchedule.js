@@ -58,7 +58,7 @@ const CourseSchedule = (props) => {
     }
 
     return (
-      <div >
+      <div id='course-schedule'>
         {
           props.assignments.length > 0 ?
             <Fragment>
