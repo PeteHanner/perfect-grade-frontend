@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -57,10 +59,15 @@ code {
 }
 
 .home-btn {
-  /* position: relative; */
-  /* bottom: 1%; */
-  /* right: 38%; */
   margin: 1rem;
+}
+
+.course-header {
+  text-decoration: underline;
+  font-family: 'Oswald', sans-serif;
+  font-variant: small-caps;
+  padding-bottom: 1rem;
+  font-size: 3rem;
 }
 
 .help-text {

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CourseSchedule from '../components/CourseSchedule'
 import CourseSidebar from '../components/CourseSidebar'
+import { MDBIcon } from 'mdbreact';
 
 class CoursePage extends Component {
 
@@ -21,7 +22,14 @@ class CoursePage extends Component {
     return (
       this.props.courses.length > 0 ?
       <div id='course-page' className='offside'>
-        <h2>{this.courseTitle()}</h2>
+        <h2 className='course-header'>
+          {this.courseTitle()}
+          <MDBIcon
+            icon="pen"
+            className="edit-icon"
+            style={{fontSize:'2rem'}}
+          />
+        </h2>
         <CourseSchedule
           assignments={this.assignments()}
         />
