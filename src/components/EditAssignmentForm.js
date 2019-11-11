@@ -7,7 +7,6 @@ import moment from 'moment'
 import { connect } from 'react-redux'
 import {editAssignment} from '../actions/editAssignment'
 import {deleteAssignment} from '../actions/deleteAssignment'
-// import { fetchCourses } from '../actions/fetchCourses'
 
 const EditAssignmentForm = (props) => {
   const {dueDate, editAssignment, deleteAssignment, updateCourses, ...others} = props
@@ -18,10 +17,6 @@ const EditAssignmentForm = (props) => {
     setNewDesc(props.description);
     setNewDate(props.dueDate)
   }, [props])
-
-  // React.useEffect(() => {
-  //   props.updateCourses()
-  // }, [props])
 
   const handleEditAssignment = (e) => {
     e.preventDefault()
@@ -104,7 +99,6 @@ const mapDispatchToProps = dispatch => {
   return {
     editAssignment: formData => dispatch(editAssignment(formData)),
     deleteAssignment: formData => dispatch(deleteAssignment(formData)),
-    // updateCourses: () => dispatch(fetchCourses())
   };
 }
 
