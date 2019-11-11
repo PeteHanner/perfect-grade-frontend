@@ -39,8 +39,19 @@ export default function assignmentsReducer(
       return {
         ...state,
         assignments: [...state.assignments, action.payload],
-        requesting: false
+          requesting: false
       };
+    case 'DELETING_ASSIGNMENT':
+      return {
+        ...state,
+        assignments: [...state.assignments],
+          requesting: true
+      };
+    case 'ASSIGNMENT_DELETED':
+    return {
+      ...state,
+      assignments: [...state.assignments.filter(a => a.id !== action.payload.id)]
+    };
     default:
       return state;
   }

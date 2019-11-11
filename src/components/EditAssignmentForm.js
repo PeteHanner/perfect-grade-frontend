@@ -6,10 +6,11 @@ import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import { connect } from 'react-redux'
 import {editAssignment} from '../actions/editAssignment'
+import {deleteAssignment} from '../actions/deleteAssignment'
 import { fetchCourses } from '../actions/fetchCourses'
 
 const EditAssignmentForm = (props) => {
-  const {dueDate, editAssignment, updateCourses, ...others} = props
+  const {dueDate, editAssignment, deleteAssignment, updateCourses, ...others} = props
   const [newDesc, setNewDesc] = React.useState('')
   const [newDate, setNewDate] = React.useState(new Date())
   React.useEffect(() => {
@@ -25,6 +26,14 @@ const EditAssignmentForm = (props) => {
       newDate: moment(newDate).format('MMMM D YYYY'),
     }
     props.editAssignment(formData)
+    props.updateCourses()
+    props.onHide()
+  }
+
+  const handleDeleteAssignment = (e) => {
+    e.preventDefault()
+    const formData = {asgmtId: props.id}
+    props.deleteAssignment(formData)
     props.updateCourses()
     props.onHide()
   }
@@ -72,6 +81,7 @@ const EditAssignmentForm = (props) => {
             variant='danger'
             type='button'
             style={{float:'left'}}
+            onClick={handleDeleteAssignment}
           >
             Delete This Assignment
           </Button>
@@ -84,6 +94,7 @@ const EditAssignmentForm = (props) => {
 const mapDispatchToProps = dispatch => {
   return {
     editAssignment: formData => dispatch(editAssignment(formData)),
+    deleteAssignment: formData => dispatch(deleteAssignment(formData)),
     updateCourses: () => dispatch(fetchCourses())
   };
 }
