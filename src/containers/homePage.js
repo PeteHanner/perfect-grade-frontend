@@ -8,7 +8,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div className='offside'>
+      <div className='offside' id='home-page'>
         <h2>Home Page</h2>
         {
           this.props.loading ?

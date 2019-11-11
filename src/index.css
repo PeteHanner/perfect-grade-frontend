@@ -32,14 +32,18 @@ code {
   text-align: center;
 }
 
-#home-page-btns {
+#home-page {
   text-align: center;
+}
+#home-page-btns {
+  display: inline-block;
   margin: auto;
   width: 20%;
   padding: 2%
 }
-#home-page-btn {
+.home-page-btn {
   display: inline-block;
+  margin: 10px;
 }
 
 .offside {
