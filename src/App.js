@@ -7,7 +7,6 @@ import SchedulePage from './containers/SchedulePage'
 import { fetchCourses } from './actions/fetchCourses'
 
 class App extends Component {
-
   componentDidMount() {
     this.props.fetchCourses()
   }
