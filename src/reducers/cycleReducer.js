@@ -1,24 +1,24 @@
 export default function cycleReducer(
   state = {
-    firstCycle: true,
-    freshCycle: false
+    firstRequest: true,
+    freshRequest: false
   }, action
 ) {
   switch (action.type) {
     case 'FIRST_REQUEST_COMPLETE':
     return {
       ...state,
-      firstCycle: false
+      firstRequest: false
     };
     case 'CHANGES_MADE':
       return {
         ...state,
-        freshCycle: true
+        freshRequest: true
       };
     case 'REQUESTED_FRESH_CYCLE':
       return {
         ...state,
-        freshCycle: false
+        freshRequest: false
       };
     default:
       return state;

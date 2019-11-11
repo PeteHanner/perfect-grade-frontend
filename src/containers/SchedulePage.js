@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner'
 class SchedulePage extends Component {
 
   componentDidMount() {
-    if (this.props.assignments.length < 1) {
+    if (this.props.firstRequest || this.props.freshRequest) {
       this.props.fetchAssignments()
     }
   }
@@ -47,10 +47,10 @@ function mapStateToProps(state) {
   }
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     fetchAssignments: () => dispatch(fetchAssignments()),
   };
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(SchedulePage)
+export default connect(mapStateToProps, mapDispatchToProps)(SchedulePage)
