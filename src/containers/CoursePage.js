@@ -2,9 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CourseSchedule from '../components/CourseSchedule'
 import CourseSidebar from '../components/CourseSidebar'
+import EditCourseForm from '../components/EditCourseForm'
 import { MDBIcon } from 'mdbreact';
 
 class CoursePage extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      showEditForm: false
+    }
+  }
 
   courseTitle = () => {
     return this.props.courses.find(course => {
@@ -18,16 +26,29 @@ class CoursePage extends Component {
     }).assignments
   }
 
+  showCourseForm = () => {
+    this.setState({
+      showEditForm: true
+    })
+  }
+
   render() {
     return (
       this.props.courses.length > 0 ?
       <div id='course-page' className='offside'>
+        <EditCourseForm
+          show={this.state.showEditForm}
+          ogTitle={this.courseTitle()}
+          courseId={this.props.match.params.id}
+          onHide={()=>this.setState({showEditForm:false})}
+        />
         <h2 className='course-header'>
           {this.courseTitle()}
           <MDBIcon
             icon="pen"
             className="edit-icon"
             style={{fontSize:'2rem'}}
+            onClick={this.showCourseForm}
           />
         </h2>
         <CourseSchedule
