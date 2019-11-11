@@ -41,7 +41,9 @@ class SchedulePage extends Component {
 function mapStateToProps(state) {
   return {
     assignments: state.assignmentsReducer.assignments,
-    loading: state.assignmentsReducer.requesting
+    loading: state.assignmentsReducer.requesting,
+    firstRequest: state.cycleReducer.firstRequest,
+    freshRequest: state.cycleReducer.freshRequest
   }
 }
 
