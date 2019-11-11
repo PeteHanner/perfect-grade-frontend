@@ -29,6 +29,19 @@ export default function coursesReducer(
         courses: [...state.courses, action.payload],
           requesting: false
       };
+    case 'EDITING_COURSE':
+      return {
+        ...state,
+        courses: [...state.courses],
+          requesting: true,
+      };
+    case 'COURSE_EDITED':
+      return {
+        ...state,
+        courses: [...state.courses, action.payload],
+          requesting: false
+      };
+
     case 'DELETING_COURSE':
       return {
         ...state,
