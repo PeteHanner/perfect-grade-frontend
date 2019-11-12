@@ -1,3 +1,5 @@
+import {fetchCourses} from './fetchCourses'
+
 export function deleteAssignment(formData) {
 
   const configObj = {
@@ -16,7 +18,8 @@ export function deleteAssignment(formData) {
     .then(r => r.json())
     .then(deletedAssignment => {
       dispatch({ type: 'ASSIGNMENT_DELETED', payload: deletedAssignment });
-      dispatch({ type: 'CHANGES_MADE' })
+      dispatch({ type: 'CHANGES_MADE' });
+      dispatch(fetchCourses())
     })
     .catch(error => alert(`There was an error (${error.message})`));
   }

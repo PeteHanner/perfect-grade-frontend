@@ -1,3 +1,5 @@
+import {fetchCourses} from './fetchCourses'
+
 export function editAssignment(formData) {
 
   const configObj = {
@@ -16,6 +18,7 @@ export function editAssignment(formData) {
       .then(newAssignment => {
         dispatch({ type: 'ASSIGNMENT_EDITED', payload: newAssignment })
         dispatch({ type: 'CHANGES_MADE' })
+        dispatch(fetchCourses())
       })
       .catch(error => alert(`There was an error (${error.message})`))
   }
