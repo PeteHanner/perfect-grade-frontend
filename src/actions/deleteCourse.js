@@ -16,7 +16,8 @@ export function deleteCourse(formData) {
     .then(r => r.json())
     .then(deletedCourse => {
       dispatch({ type: 'COURSE_DELETED', payload: deletedCourse });
-      dispatch(fetchCourses())
+      dispatch({ type: 'CHANGES_MADE' });
+      dispatch(fetchCourses());
     })
     .catch(error => alert(`There was an error (${error.message})`));
   }

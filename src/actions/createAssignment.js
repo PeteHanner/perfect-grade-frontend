@@ -17,6 +17,7 @@ export function createAssignment(formData) {
       .then(r => r.json())
       .then(newAssignment => {
         dispatch({ type: 'ASSIGNMENT_CREATED', payload: newAssignment });
+        dispatch({ type: 'CHANGES_MADE' });
         dispatch(fetchCourses())
       })
       .catch(error => alert(`There was an error (${error.message})`))

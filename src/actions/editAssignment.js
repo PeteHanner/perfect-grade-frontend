@@ -10,10 +10,13 @@ export function editAssignment(formData) {
   }
 
   return dispatch => {
-    dispatch({type: 'EDITING_ASSIGNMENT'});
+    dispatch({ type: 'EDITING_ASSIGNMENT' });
     fetch(`http://localhost:3001/assignments/${formData.id}`, configObj)
-    .then(r => r.json())
-    .then(newAssignment => dispatch({ type: 'ASSIGNMENT_EDITED', payload: newAssignment}))
-    .catch(error => alert(`There was an error (${error.message})`))
+      .then(r => r.json())
+      .then(newAssignment => {
+        dispatch({ type: 'ASSIGNMENT_EDITED', payload: newAssignment })
+        dispatch({ type: 'CHANGES_MADE' })
+      })
+      .catch(error => alert(`There was an error (${error.message})`))
   }
 }

@@ -8,7 +8,8 @@ export default function cycleReducer(
     case 'FIRST_REQUEST_COMPLETE':
     return {
       ...state,
-      firstRequest: false
+      firstRequest: false,
+      freshRequest: false
     };
     case 'CHANGES_MADE':
       return {

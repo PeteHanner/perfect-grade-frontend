@@ -19,6 +19,7 @@ export function editCourse(formData) {
     .then(r => r.json())
     .then(newCourse => {
       dispatch({ type: 'COURSE_EDITED', payload: newCourse});
+      dispatch({ type: 'CHANGES_MADE' })
       dispatch(fetchCourses())
     })
     .catch(error => alert(`There was an error (${error.message})`))
