@@ -1,4 +1,4 @@
-import {fetchCourses} from './fetchCourses'
+import { fetchCourses } from './fetchCourses'
 
 export function editAssignment(formData) {
 

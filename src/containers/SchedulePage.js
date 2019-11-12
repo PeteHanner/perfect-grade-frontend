@@ -30,10 +30,11 @@ class SchedulePage extends Component {
             </Fragment>
           :
           <AdjustedScheduleList
-        assignments={this.props.assignments}
-        />
-      }
-      <ScheduleSidebar />
+            loading={this.props.loading}
+            assignments={this.props.assignments}
+          />
+        }
+        <ScheduleSidebar />
       </div>
     )
   }

@@ -20,11 +20,12 @@ const AdjustedScheduleList = (props) => {
   }
 
   return (
-    props.assignments !== [] ?
+    props.loading ?
+    null
+    :
     <div>
       {renderAsgmts()}
-    </div> :
-    null
+    </div>
   )
 }
 
