@@ -17,13 +17,13 @@ export function fetchAssignments() {
     fetch(`http://localhost:3001/assignments/${requestType}`)
       .then(r => r.json())
       .then(asgmts => {
-        dispatch({ type: 'ASSIGNMENTS_LOADED', payload: asgmts })
         // // TODO: logic to set cycle state goes here
         if (firstRequest) {
           dispatch(madeFirstRequest())
         } else {
           dispatch(madeFreshRequest())
         }
+        dispatch({ type: 'ASSIGNMENTS_LOADED', payload: asgmts })
       })
       .catch(error => alert(`There was an error (${error.message})`));
   };
