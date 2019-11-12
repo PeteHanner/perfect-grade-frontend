@@ -7,7 +7,8 @@ import Spinner from 'react-bootstrap/Spinner'
 
 class SchedulePage extends Component {
 
-  componentDidMount() {
+  constructor() {
+    super(props)
     if (this.props.firstRequest || this.props.freshRequest) {
       this.props.fetchAssignments()
     }
@@ -16,17 +17,17 @@ class SchedulePage extends Component {
   render() {
     return (
       <div id='schedule-page' className='offside'>
-      <h2>Final Adjusted Schedule</h2>
-      {
-        this.props.loading ?
-        <Fragment>
-          <h6>Magic elves are squishing your schedule</h6>
-          <h6>Be patient please</h6>
-          <h6>This takes a while and our elves are unionized</h6>
-          <Spinner animation='border'>
-            <span className='sr-only'>Loading....</span>
-          </Spinner>
-        </Fragment>
+          <h2>Final Adjusted Schedule</h2>
+          {
+            this.props.loading ?
+              <Fragment>
+                <h6>Magic elves are squishing your schedule</h6>
+                <h6>Be patient please</h6>
+                <h6>This takes a while and our elves are unionized</h6>
+                <Spinner animation='border'>
+                  <span className='sr-only'>Loading....</span>
+                </Spinner>
+              </Fragment>
         :
         <AdjustedScheduleList
         assignments={this.props.assignments}

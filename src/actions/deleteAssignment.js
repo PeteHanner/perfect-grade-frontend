@@ -9,9 +9,7 @@ export function deleteAssignment(formData) {
       "Accept": "application/json"
     },
   }
-
-  console.log(configObj, formData)
-
+  
   return dispatch => {
     dispatch({ type: 'DELETING_ASSIGNMENT' });
     fetch(`http://localhost:3001/assignments/${formData.asgmtId}`, configObj)

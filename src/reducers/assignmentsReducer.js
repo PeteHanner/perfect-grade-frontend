@@ -1,6 +1,7 @@
 export default function assignmentsReducer(
   state = {
-    assignments: []
+    assignments: [],
+    requesting: false
   },
   action
 ) {
@@ -50,7 +51,8 @@ export default function assignmentsReducer(
     case 'ASSIGNMENT_DELETED':
     return {
       ...state,
-      assignments: [...state.assignments.filter(a => a.id !== action.payload.id)]
+      assignments: [...state.assignments.filter(a => a.id !== action.payload.id)],
+      requesting: false
     };
     default:
       return state;
