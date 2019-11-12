@@ -98,9 +98,10 @@ code {
 
 .course-header {
   text-decoration: underline;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-variant: small-caps;
   padding-bottom: 1rem;
+  padding-right: 2rem;
   font-size: 3rem;
 }
 
