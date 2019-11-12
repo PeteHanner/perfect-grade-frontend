@@ -15,6 +15,12 @@ code {
     monospace;
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
 #main-header {
   font-family: 'Exo 2', sans-serif;
   font-variant: small-caps;

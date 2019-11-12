@@ -17,7 +17,7 @@ class SchedulePage extends Component {
   render() {
     return (
       <div id='schedule-page' className='offside'>
-        <h2>Final Adjusted Schedule</h2>
+        <h2 className='course-header'>Final Adjusted Schedule</h2>
         {
           this.props.loading ?
             <Fragment>
