@@ -2,12 +2,16 @@ import React from 'react'
 import { withRouter } from 'react-router-dom';
 import NewCourseForm from './NewCourseForm'
 
-
 const CourseCards = (props) => {
 
-  const randColor = () => {
-    return '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6)
-  }
+  const colorArray = [
+    'a20705',
+    '610A95',
+    'B69500',
+    '156D20',
+    '005C76',
+    'c26702'
+  ]
 
   const goToCoursePage = (e) => {
     e.preventDefault()
@@ -15,13 +19,15 @@ const CourseCards = (props) => {
   }
 
   const renderCourseCards = () => {
-    return props.courses.map(course => {
+    return props.courses.map((course, index) => {
+      const bgColor = '#'+colorArray[index % 6]
+      // debugger
       return (
-        <span
-          className='card'
+        <div
+          className='course-card'
           key={course.id}
           data-id={course.id}
-          // style={{backgroundColor:randColor()}}
+          style={{backgroundColor: bgColor}}
           onClick={goToCoursePage}
         >
           <h2
@@ -30,7 +36,7 @@ const CourseCards = (props) => {
           >
             {course.name}
           </h2>
-        </span>
+        </div>
       );
     })
   }
@@ -40,12 +46,13 @@ const CourseCards = (props) => {
   return (
     <div id='course-cards'>
       {renderCourseCards()}
-      <span
-        className='card'
+      <div
+        className='course-card'
+        style={{backgroundColor: 'lightgray'}}
         onClick={e => setNewCourseShow(true)}
       >
         <h2 className='card-title new-course'>Add a New Course</h2>
-      </span>
+      </div>
       <NewCourseForm
         show={newCourseShow}
         onHide={()=> setNewCourseShow(false)}
@@ -55,17 +62,3 @@ const CourseCards = (props) => {
 }
 
 export default withRouter(CourseCards)
-
-
-/* <Card
-      key={course.id}
-      data-id={course.id}
-      style={{
-      maxWidth: '15rem',
-      minHeight: '10rem',
-      backgroundColor:randColor()
-    }}
-    onClick={goToCoursePage}
-    >
-    <Card.Title data-id={course.id}>{course.name}</Card.Title>
-  </Card> */
