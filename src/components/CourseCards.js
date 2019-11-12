@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
-import { CardGroup, Card } from 'react-bootstrap'
 import NewCourseForm from './NewCourseForm'
 
 
@@ -22,7 +21,7 @@ const CourseCards = (props) => {
           className='card'
           key={course.id}
           data-id={course.id}
-          style={{backgroundColor:randColor()}}
+          // style={{backgroundColor:randColor()}}
           onClick={goToCoursePage}
         >
           <h2
@@ -41,21 +40,32 @@ const CourseCards = (props) => {
   return (
     <div id='course-cards'>
       {renderCourseCards()}
+      <span
+        className='card'
+        onClick={e => setNewCourseShow(true)}
+      >
+        <h2 className='card-title new-course'>Add a New Course</h2>
+      </span>
+      <NewCourseForm
+        show={newCourseShow}
+        onHide={()=> setNewCourseShow(false)}
+      />
     </div>
   )
 }
 
 export default withRouter(CourseCards)
 
-{/* <Card
-  key={course.id}
-  data-id={course.id}
-  style={{
-    maxWidth: '15rem',
-    minHeight: '10rem',
-    backgroundColor:randColor()
-  }}
-  onClick={goToCoursePage}
->
-  <Card.Title data-id={course.id}>{course.name}</Card.Title>
-</Card> */}
+
+/* <Card
+      key={course.id}
+      data-id={course.id}
+      style={{
+      maxWidth: '15rem',
+      minHeight: '10rem',
+      backgroundColor:randColor()
+    }}
+    onClick={goToCoursePage}
+    >
+    <Card.Title data-id={course.id}>{course.name}</Card.Title>
+  </Card> */
