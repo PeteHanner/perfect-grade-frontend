@@ -9,7 +9,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className='offside' id='home-page'>
-        <h2>Home Page</h2>
+        <h1 id='main-header'>Perfect Grade</h1>
         {
           this.props.loading ?
           <h5>Loading...</h5>
