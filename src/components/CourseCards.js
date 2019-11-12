@@ -18,18 +18,20 @@ const CourseCards = (props) => {
   const renderCourseCards = () => {
     return props.courses.map(course => {
       return (
-        <Card
+        <span
+          className='card'
           key={course.id}
           data-id={course.id}
-          style={{
-            maxWidth: '15rem',
-            minHeight: '10rem',
-            backgroundColor:randColor()
-          }}
+          style={{backgroundColor:randColor()}}
           onClick={goToCoursePage}
         >
-        <Card.Title data-id={course.id}>{course.name}</Card.Title>
-        </Card>
+          <h2
+            className='card-title'
+            data-id={course.id}
+          >
+            {course.name}
+          </h2>
+        </span>
       );
     })
   }
@@ -37,22 +39,23 @@ const CourseCards = (props) => {
   const [newCourseShow, setNewCourseShow] = React.useState(false);
 
   return (
-    <CardGroup id='course-cards'>
+    <div id='course-cards'>
       {renderCourseCards()}
-      <Card
-        bg='light'
-        style={{ maxWidth: '15rem' }}
-        onClick={(e) => setNewCourseShow(true)
-        }
-      >
-        <Card.Title>Add A New Course</Card.Title>
-      </Card>
-      <NewCourseForm
-        show={newCourseShow}
-        onHide={()=> setNewCourseShow(false)}
-      />
-    </CardGroup>
+    </div>
   )
 }
 
 export default withRouter(CourseCards)
+
+{/* <Card
+  key={course.id}
+  data-id={course.id}
+  style={{
+    maxWidth: '15rem',
+    minHeight: '10rem',
+    backgroundColor:randColor()
+  }}
+  onClick={goToCoursePage}
+>
+  <Card.Title data-id={course.id}>{course.name}</Card.Title>
+</Card> */}
