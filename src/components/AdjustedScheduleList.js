@@ -12,7 +12,12 @@ const AdjustedScheduleList = (props) => {
         <Fragment key={day}>
           <h5>{moment(day).format('dddd MMM. D, YYYY')}</h5>
           <ul>
-            {asgs.map(a => <li key={a.description}>{a.description} <br/> ({a.course.name})</li>)}
+            {
+              asgs ?
+                asgs.map(a => <li key={a.description}>{a.description} <br/> ({a.course.name})</li>)
+              :
+                null
+            }
           </ul>
         </Fragment>
       )
