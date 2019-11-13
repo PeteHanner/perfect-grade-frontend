@@ -14,7 +14,7 @@ export default function coursesReducer(
     case 'COURSES_LOADED':
       return {
         ...state,
-        courses: action.payload,
+        courses: action.payload.sort((a, b) => (a.id > b.id) ? 1 : -1),
           requesting: false
       };
     case 'CREATING_COURSE':
@@ -26,7 +26,7 @@ export default function coursesReducer(
     case 'COURSE_CREATED':
       return {
         ...state,
-        courses: [...state.courses, action.payload],
+        courses: [...state.courses, action.payload].sort((a, b) => (a.id > b.id) ? 1 : -1),
           requesting: false
       };
     case 'EDITING_COURSE':
@@ -38,7 +38,15 @@ export default function coursesReducer(
     case 'COURSE_EDITED':
       return {
         ...state,
-        courses: [...state.courses, action.payload],
+        courses: state.courses.map(course => {
+          if (course.id === action.payload.id) {
+            course = action.payload
+            return course
+          } else {
+            return course
+          }
+        }).sort((a, b) => (a.id > b.id) ? 1 : -1),
+        // courses: [...state.courses, action.payload],
           requesting: false
       };
 
