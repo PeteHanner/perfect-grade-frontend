@@ -14,7 +14,7 @@ const AdjustedScheduleList = (props) => {
           <ul>
             {
               asgs ?
-                asgs.map(a => <li key={a.description}>{a.description} <br/> ({a.course.name})</li>)
+                asgs.map(a => <li key={a.description}>{a.description} <br/> <span className='course-title'>({a.course.name})</span></li>)
               :
                 null
             }
@@ -25,7 +25,7 @@ const AdjustedScheduleList = (props) => {
   }
 
   return (
-    <div>
+    <div id='adj-schedule-list'>
       {renderAsgmts()}
     </div>
   )
