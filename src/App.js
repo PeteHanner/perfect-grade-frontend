@@ -13,7 +13,8 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter id='app-interface'>
+      <div id='bg'/>
         <Switch>
           <Route
             exact path='/courses/:id'

@@ -11,6 +11,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#bg {
+  background: url(https://images.pexels.com/photos/545057/pexels-photo-545057.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.2;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

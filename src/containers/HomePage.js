@@ -12,10 +12,10 @@ class HomePage extends Component {
         <h1 id='main-header'>Perfect Grade</h1>
         {
           this.props.loading ?
-          <h5>Loading...</h5>
+            <h5>Loading...</h5>
           :
           <Fragment>
-          <CourseCards
+            <CourseCards
             courses={this.props.courses}
           />
           <HomePageBtns/>
