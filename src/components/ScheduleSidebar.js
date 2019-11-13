@@ -12,31 +12,36 @@ const ScheduleSideBar = (props) => {
   }
 
   const csvExport = (e) => {
+    // array to store data
     const data = []
+    // necessary info from each post-flattened asgmt
     props.assignments.forEach(date => {
       const asgmts = date[1]
       asgmts.forEach(a => {
         const fields = {
-          task: a.description,
-          list: a.course.name,
-          duedate: a.adj_date
+          TASK: a.description,
+          LIST: a.course.name,
+          DUEDATE: a.adj_date
         }
         data.push(fields)
       })
     })
-    console.log(data)
-
+    // CSV file options setup
     const options = {
       fieldSeparator: ',',
-      quoteStrings: '"',
+      filename: 'flat_schedule',
+      quoteStrings: '',
       decimalSeparator: '.',
       showLabels: true,
       showTitle: true,
-      title: 'My Awesome CSV',
+      title: 'Adjusted Schedule',
       useTextFile: false,
       useBom: true,
-      headers: ['TASK', 'LIST', 'DUEDATE']
+      useKeysAsHeaders: true,
     };
+
+    const csvExporter = new ExportToCsv(options);
+    csvExporter.generateCsv(data);
   }
 
   return (
@@ -45,7 +50,7 @@ const ScheduleSideBar = (props) => {
         id='export-button'
         onClick={csvExport}
       >
-        Export To App
+        Export To CSV
       </h4>
       <Button
         variant='outline-primary'
