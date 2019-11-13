@@ -50,7 +50,7 @@ const CourseSchedule = (props) => {
                     </li>
                   </Fragment>
                 )
-              })}
+              }).sort((a, b) => (a.id > b.id) ? 1 : -1)}
             </ul>
           </Fragment>
         )
