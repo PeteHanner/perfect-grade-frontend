@@ -11,11 +11,6 @@ const ScheduleSideBar = (props) => {
     props.history.push(`/`)
   }
 
-  const escapeCommas = (string) => {
-    const escaped = string.replace(',', '\,')
-    return escaped;
-  }
-
   const csvExport = (e) => {
     if (!props.loading) {
       // array to store data
@@ -25,7 +20,7 @@ const ScheduleSideBar = (props) => {
         const asgmts = date[1]
         asgmts.forEach(a => {
           const fields = {
-            TASK: escapeCommas(a.description),
+            TASK: a.description,
             LIST: a.course.name,
             DUEDATE: a.adj_date
           }

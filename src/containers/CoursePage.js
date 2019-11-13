@@ -7,24 +7,49 @@ import { MDBIcon } from 'mdbreact';
 
 class CoursePage extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      showEditForm: false
+      showEditForm: false,
+      course: null,
+      courseReady: false
     }
   }
 
-  courseTitle = () => {
-    return this.props.courses.find(course => {
-      return course.id === parseInt(this.props.match.params.id)
-    }).name
+  // courseTitle = () => {
+  //   if (!this.props.loading) {
+  //     return this.props.courses.find(course => {
+  //       return course.id === parseInt(this.props.match.params.id)
+  //     }).name
+  //   }
+  // }
+
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      course: this.props.courses.find(course => {
+        return course.id === parseInt(this.props.match.params.id)
+      })
+    })
   }
 
-  assignments = () => {
-    return this.props.courses.find(course => {
-      return course.id === parseInt(this.props.match.params.id)
-    }).assignments
+  componentDidUpdate(prevProps) {
+    if (prevProps.courses !== this.props.courses && this.props.courses.length > 0) {
+      // debugger
+      this.setState({
+        ...this.state,
+        course: this.props.courses.find(course => {
+          return course.id === parseInt(this.props.match.params.id)
+        })
+      })
+    }
   }
+
+  // assignments = () => {
+  //   return this.props.courses.find(course => {
+  //     return course.id === parseInt(this.props.match.params.id)
+  //   }).assignments
+  // }
 
   showCourseForm = () => {
     this.setState({
@@ -33,38 +58,45 @@ class CoursePage extends Component {
   }
 
   render() {
-    return (
-      this.props.courses.length > 0 ?
-      <div id='course-page' className='offside'>
-        <EditCourseForm
-          show={this.state.showEditForm}
-          ogTitle={this.courseTitle()}
-          courses={this.props.courses}
-          courseId={this.props.match.params.id}
-          onHide={()=>this.setState({showEditForm:false})}
-        />
-        <h2 className='course-header'>
-          {this.courseTitle()}
-          <MDBIcon
-            icon="pen"
-            className="edit-icon"
-            style={{fontSize:'2rem'}}
-            onClick={this.showCourseForm}
+    if (this.state.course) {
+      return (
+        <div id='course-page' className='offside'>
+          <EditCourseForm
+            show={this.state.showEditForm}
+            ogTitle={this.state.course.name}
+            courses={this.props.courses}
+            courseId={this.props.match.params.id}
+            onHide={()=>this.setState({showEditForm:false})}
           />
+          <h2 className='course-header'>
+            {this.state.course.name}
+            <MDBIcon
+              icon="pen"
+              className="edit-icon"
+              style={{fontSize:'2rem'}}
+              onClick={this.showCourseForm}
+            />
+          </h2>
+          <CourseSchedule
+            assignments={this.state.course.assignments}
+          />
+          <CourseSidebar />
+        </div>
+      )
+    } else {
+      return (
+        <h2>
+          Loading...
         </h2>
-        <CourseSchedule
-          assignments={this.assignments()}
-        />
-        <CourseSidebar />
-      </div> :
-      null
-    )
+      )
+    }
   }
 }
 
 function mapStateToProps(state) {
   return {
-    courses: state.coursesReducer.courses
+    courses: state.coursesReducer.courses,
+    loading: state.coursesReducer.requesting
   }
 }
 
