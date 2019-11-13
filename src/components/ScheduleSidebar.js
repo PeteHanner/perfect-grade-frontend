@@ -48,16 +48,18 @@ const ScheduleSideBar = (props) => {
 
   return (
     <div className='sidenav'>
-      <h4
+      <Button
         id='export-button'
         onClick={csvExport}
       >
         Export To CSV
-      </h4>
+      </Button>
+      <br/>
       <Button
         variant='outline-primary'
         size='sm'
         onClick={goHome}
+        className='home-btn'
       >
         {`<<  Home`}
       </Button>
