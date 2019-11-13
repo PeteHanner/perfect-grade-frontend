@@ -34,7 +34,7 @@ const CourseSchedule = (props) => {
         const date = arr[0]
         const asgmt_arr = arr[1]
         return (
-          <Fragment key={uuidv1()}>
+          <div key={uuidv1()} id='course-schedule'>
             <h4>{moment(date).format('dddd, MMMM D, YYYY')}</h4>
             <ul>
               {asgmt_arr.map(a => {
@@ -52,13 +52,13 @@ const CourseSchedule = (props) => {
                 )
               }).sort((a, b) => (a.id > b.id) ? 1 : -1)}
             </ul>
-          </Fragment>
+          </div>
         )
       });
     }
 
     return (
-      <div id='course-schedule'>
+      <div id='course-schedule-bg'>
         {
           props.assignments.length > 0 ?
             <Fragment>
