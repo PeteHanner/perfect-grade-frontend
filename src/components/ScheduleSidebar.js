@@ -11,6 +11,11 @@ const ScheduleSideBar = (props) => {
     props.history.push(`/`)
   }
 
+  const escapeCommas = (string) => {
+    const escaped = string.replace(',', '\,')
+    return escaped;
+  }
+
   const csvExport = (e) => {
     if (!props.loading) {
       // array to store data
@@ -20,7 +25,7 @@ const ScheduleSideBar = (props) => {
         const asgmts = date[1]
         asgmts.forEach(a => {
           const fields = {
-            TASK: '"\"'+a.description+'\"',
+            TASK: escapeCommas(a.description),
             LIST: a.course.name,
             DUEDATE: a.adj_date
           }
@@ -29,9 +34,9 @@ const ScheduleSideBar = (props) => {
       })
       // CSV file options setup
       const options = {
-        fieldSeparator: ',',
+        fieldSeparator: ' , ',
         filename: 'flat_schedule',
-        quoteStrings: '',
+        quoteStrings: '"',
         decimalSeparator: '.',
         showLabels: true,
         showTitle: true,
