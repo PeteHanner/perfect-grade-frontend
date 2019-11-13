@@ -12,36 +12,38 @@ const ScheduleSideBar = (props) => {
   }
 
   const csvExport = (e) => {
-    // array to store data
-    const data = []
-    // necessary info from each post-flattened asgmt
-    props.assignments.forEach(date => {
-      const asgmts = date[1]
-      asgmts.forEach(a => {
-        const fields = {
-          TASK: a.description,
-          LIST: a.course.name,
-          DUEDATE: a.adj_date
-        }
-        data.push(fields)
+    if (!props.loading) {
+      // array to store data
+      const data = []
+      // necessary info from each post-flattened asgmt
+      props.assignments.forEach(date => {
+        const asgmts = date[1]
+        asgmts.forEach(a => {
+          const fields = {
+            TASK: '"\"'+a.description+'\"',
+            LIST: a.course.name,
+            DUEDATE: a.adj_date
+          }
+          data.push(fields)
+        })
       })
-    })
-    // CSV file options setup
-    const options = {
-      fieldSeparator: ',',
-      filename: 'flat_schedule',
-      quoteStrings: '',
-      decimalSeparator: '.',
-      showLabels: true,
-      showTitle: true,
-      title: 'Adjusted Schedule',
-      useTextFile: false,
-      useBom: true,
-      useKeysAsHeaders: true,
-    };
+      // CSV file options setup
+      const options = {
+        fieldSeparator: ',',
+        filename: 'flat_schedule',
+        quoteStrings: '',
+        decimalSeparator: '.',
+        showLabels: true,
+        showTitle: true,
+        title: 'Adjusted Schedule',
+        useTextFile: false,
+        useBom: true,
+        useKeysAsHeaders: true,
+      };
 
-    const csvExporter = new ExportToCsv(options);
-    csvExporter.generateCsv(data);
+      const csvExporter = new ExportToCsv(options);
+      csvExporter.generateCsv(data);
+    }
   }
 
   return (

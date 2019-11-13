@@ -36,6 +36,7 @@ class SchedulePage extends Component {
         }
         <ScheduleSidebar
           assignments={this.props.assignments}
+          loading={this.props.loading}
         />
       </div>
     )
