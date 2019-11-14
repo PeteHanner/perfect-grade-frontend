@@ -16,14 +16,6 @@ class CoursePage extends Component {
     }
   }
 
-  // courseTitle = () => {
-  //   if (!this.props.loading) {
-  //     return this.props.courses.find(course => {
-  //       return course.id === parseInt(this.props.match.params.id)
-  //     }).name
-  //   }
-  // }
-
   componentDidMount() {
     this.setState({
       ...this.state,
@@ -44,12 +36,6 @@ class CoursePage extends Component {
       })
     }
   }
-
-  // assignments = () => {
-  //   return this.props.courses.find(course => {
-  //     return course.id === parseInt(this.props.match.params.id)
-  //   }).assignments
-  // }
 
   showCourseForm = () => {
     this.setState({
