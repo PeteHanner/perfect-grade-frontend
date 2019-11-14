@@ -100,11 +100,15 @@ h1, h2, h3, h4, h5 {
   display: inline-block;
   margin: auto;
   width: 20%;
-  padding: 2%
+  /* padding: 2% */
 }
 .home-page-btn {
-  display: inline-block;
+  display: flex;
   margin: 10px;
+  transform: scale(1.5, 1.5);
+}
+#button-break {
+margin: 2%;
 }
 
 .offside {

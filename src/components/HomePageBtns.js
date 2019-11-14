@@ -10,25 +10,30 @@ const HomePageBtns = (props) => {
     props.history.push('flattened')
   }
 
-  return(
-    <ButtonToolbar id='home-page-btns'>
-      <Button
-        size='sm'
-        variant='info'
-        className='home-page-btn'
-      >
-        How To Use Perfect Grade
-      </Button>
-      <Button
-        size='lg'
-        variant='success'
-        onClick={flattenAssignments}
-        className='home-page-btn'
-      >
-        <strong>Make The Grade!</strong>
-      </Button>
-    </ButtonToolbar>
-  )
+  return (
+    <ButtonToolbar id = 'home-page-btns' >
+      <div>
+        <Button
+          size = 'lg'
+          variant = 'success'
+          onClick = { flattenAssignments }
+          className = 'home-page-btn'
+        >
+          <strong> Make The Grade! </strong>
+        </Button>
+      </div>
+      <div id='button-break'></div>
+      <div>
+        <Button
+          size = 'sm'
+          variant = 'info'
+          className = 'home-page-btn'
+        >
+          How To Use Perfect Grade
+        </Button>
+      </div>
+      </ButtonToolbar>
+      )
 }
 
 export default withRouter(HomePageBtns)
