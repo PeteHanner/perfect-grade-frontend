@@ -10,6 +10,11 @@ const HomePageBtns = (props) => {
     props.history.push('flattened')
   }
 
+  const goToAboutPage = e => {
+    e.preventDefault()
+    props.history.push('about')
+  }
+
   return (
     <ButtonToolbar id = 'home-page-btns' >
       <div>
@@ -28,6 +33,7 @@ const HomePageBtns = (props) => {
           size = 'sm'
           variant = 'info'
           className = 'home-page-btn'
+          onClick={goToAboutPage}
         >
           How To Use Perfect Grade
         </Button>

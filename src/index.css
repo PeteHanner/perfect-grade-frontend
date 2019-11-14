@@ -12,7 +12,7 @@ body {
 }
 
 #bg {
-  background: url(https://images.pexels.com/photos/545057/pexels-photo-545057.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+  background: url(https://images.pexels.com/photos/167682/pexels-photo-167682.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
@@ -41,6 +41,16 @@ h1, h2, h3, h4, h5 {
   font-size: 110px;
 }
 
+#main-logo {
+  transform: scale(1.7, 1.7);
+  padding: 3%;
+  padding-top: 4%;
+}
+
+.btn {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 #course-cards {
   padding: 20px;
   text-align: center;
@@ -50,34 +60,34 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
 }
 
-.btn{
-  font-family: 'Josefin Sans', sans-serif;
-}
-
 .course-card {
   margin: 1.25rem;
   opacity: 0.8;
-  max-width: 15rem;
-  max-height: 15rem;
+  max-width: 12rem;
+  max-height: 12rem;
   position: relative;
   width: 50%;
   text-align: center;
   border-radius: 5%;
   box-shadow: 10px 10px 15px
 }
+
 .course-card:after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
-.course-card:hover{
+
+.course-card:hover {
   opacity: 1;
   cursor: pointer;
 }
-.course-card:active{
+
+.course-card:active {
   box-shadow: 3px 3px 10px;
   transform: translateY(5px) translateX(5px);
 }
+
 .card-title {
   margin: 0;
   position: absolute;
@@ -88,6 +98,7 @@ h1, h2, h3, h4, h5 {
   color: white;
   text-decoration: none;
 }
+
 .new-course {
   font-variant: small-caps;
   color: black;
@@ -96,19 +107,22 @@ h1, h2, h3, h4, h5 {
 #home-page {
   text-align: center;
 }
+
 #home-page-btns {
   display: inline-block;
   margin: auto;
   width: 20%;
   /* padding: 2% */
 }
+
 .home-page-btn {
   display: flex;
   margin: 10px;
   transform: scale(1.5, 1.5);
 }
+
 #button-break {
-margin: 2%;
+  margin: 2%;
 }
 
 .offside {
@@ -133,17 +147,19 @@ margin: 2%;
   display: inline-block;
 }
 
-#course-schedule-bg{
+#course-schedule-bg {
   background: rgba(255, 204, 153, 0.25);
   display: inline-block;
   padding: 1%;
   padding-top: 2%;
   margin-left: 2rem;
 }
+
 #course-schedule {
   padding-left: 2rem;
   opacity: 1;
 }
+
 #course-schedule ul {
   padding-left: 3.5rem;
 }
@@ -175,12 +191,13 @@ margin: 2%;
   padding-left: 1rem;
   -webkit-text-stroke: 2px darkgoldenrod;
 }
+
 .edit-icon:hover {
   opacity: 1;
   cursor: pointer;
 }
 
-#adj-schedule-list{
+#adj-schedule-list {
   background: rgba(0, 0, 50, 0.2);
   display: inline-block;
   padding: 1%;
@@ -204,6 +221,11 @@ margin: 2%;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
 }
-#export-button:hover{
+
+#export-button:hover {
   opacity: 1;
+}
+
+.about-page {
+  text-align: center;
 }

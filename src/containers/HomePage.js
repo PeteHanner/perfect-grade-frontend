@@ -9,17 +9,18 @@ class HomePage extends Component {
   render() {
     return (
       <div className='offside' id='home-page'>
-        <h1 id='main-header'>Perfect Grade</h1>
+        <img id='main-logo' src='https://i.imgur.com/yh4Je8f.png' />
+        {/* <h1 id='main-header'>Perfect Grade</h1> */}
         {
           this.props.loading ?
             <h5>Loading...</h5>
           :
           <Fragment>
             <CourseCards
-            courses={this.props.courses}
-          />
-          <HomePageBtns/>
-        </Fragment>
+              courses={this.props.courses}
+            />
+            <HomePageBtns/>
+          </Fragment>
         }
       </div>
     )
