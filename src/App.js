@@ -5,6 +5,7 @@ import HomePage from './containers/HomePage'
 import CoursePage from './containers/CoursePage'
 import SchedulePage from './containers/SchedulePage'
 import AboutPage from './containers/AboutPage'
+import WelcomePage from './containers/WelcomePage'
 import { fetchCourses } from './actions/fetchCourses'
 
 class App extends Component {
@@ -28,6 +29,10 @@ class App extends Component {
           <Route
             exact path ='/about'
             component={AboutPage}
+          />
+          <Route
+            exact path ='/welcome'
+            component={WelcomePage}
           />
           <Route
             path='/'

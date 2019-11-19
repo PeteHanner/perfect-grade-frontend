@@ -6,9 +6,15 @@ class WelcomePage extends Component {
 
   render() {
     return (
-      <Fragment>
-        <h2>Welcome Page</h2>
-      </Fragment>
+      <div className='offside'>
+        <h2
+        >
+          Welcome to Perfect Grade
+        </h2>
+
+        <p>Log In</p>
+        <p>Sign Up</p>
+      </div>
     )
   }
 }
@@ -17,4 +23,4 @@ function mapStateToProps(state) {
   return { state }
 }
 
-export default connect(mapStateToProps)(HomePage)
+export default connect(mapStateToProps)(WelcomePage)
