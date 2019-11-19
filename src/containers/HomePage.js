@@ -9,7 +9,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className='offside' id='home-page'>
-        <img id='main-logo' src='https://i.imgur.com/yAkZCHP.png' />
+        <img id='main-logo' alt='Perfect Grade Logo' src='https://i.imgur.com/yAkZCHP.png' />
         {
           this.props.loading ?
             <h5>Loading...</h5>
