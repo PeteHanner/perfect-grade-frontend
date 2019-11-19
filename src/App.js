@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { withRouter, Route, Switch } from "react-router-dom";
 import HomePage from './containers/HomePage'
 import CoursePage from './containers/CoursePage'
 import SchedulePage from './containers/SchedulePage'
@@ -15,8 +15,8 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter id='app-interface'>
-      <div id='bg'/>
+      <Fragment>
+        <div id='bg'/>
         <Switch>
           <Route
             exact path='/courses/:id'
@@ -39,7 +39,7 @@ class App extends Component {
             component={HomePage}
           />
         </Switch>
-      </BrowserRouter>
+      </Fragment>
     )
   }
 }
@@ -57,4 +57,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
