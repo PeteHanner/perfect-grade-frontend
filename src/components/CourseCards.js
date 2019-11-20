@@ -23,7 +23,6 @@ const CourseCards = (props) => {
 
   const renderCourseCards = () => props.courses.map((course, index) => {
     const bgColor = `#${colorArray[index % 6]}`;
-    // debugger
     return (
       <div
         className="course-card"

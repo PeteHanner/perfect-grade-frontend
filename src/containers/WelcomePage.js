@@ -1,10 +1,19 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import LoginForm from '../components/LoginForm'
 
 class WelcomePage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showLogin: false,
+      showSignup: false
+    }
+  }
+
   render() {
     return (
       <div className="offside">
@@ -12,9 +21,17 @@ class WelcomePage extends Component {
           Welcome to Perfect Grade
         </h2>
 
-        <p>Log In</p>
+        <LoginForm
+          show={this.state.showLogin}
+          onClick={() => this.setState({ ...this.state, showLogin: true })}
+          onHide={() => this.setState({ ...this.state, showLogin: false })}
+        />
+
+        <p onClick={() => this.setState({ ...this.state, showLogin: true })}>
+          Log In
+        </p>
         <p>Sign Up</p>
-      </div>
+      </div >
     );
   }
 }
