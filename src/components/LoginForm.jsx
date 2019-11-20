@@ -10,6 +10,12 @@ const LoginForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = {
+      name: userName,
+      password: password
+    }
+    console.log(formData)
     props.onHide();
   };
 

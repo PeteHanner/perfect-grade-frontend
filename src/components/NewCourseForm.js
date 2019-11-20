@@ -45,7 +45,7 @@ const NewCourseForm = (props) => {
               placeholder='e.g. Underwater Basket Weaving 301'
               value={courseTitle}
               required
-              onChange={(e)=> setCourseTitle(e.target.value)}
+              onChange={(e) => setCourseTitle(e.target.value)}
             />
           </Form.Group>
           <Button variant='success' type='submit'>
@@ -54,13 +54,13 @@ const NewCourseForm = (props) => {
         </Form>
       </Modal.Body>
     </Modal>
-      )
-    }
+  )
+}
 
-    function mapDispatchToProps(dispatch) {
-      return {
-        createCourse: (formData) => dispatch(createCourse(formData))
-      };
-    }
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: (formData) => dispatch(createCourse(formData))
+  };
+}
 
-    export default connect(null, mapDispatchToProps)(NewCourseForm)
+export default connect(null, mapDispatchToProps)(NewCourseForm)
