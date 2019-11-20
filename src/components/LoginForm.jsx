@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
-import { createCourse } from '../actions/createCourse';
 
 const LoginForm = (props) => {
   const [userName, setUserName] = React.useState('');
@@ -29,18 +28,21 @@ const LoginForm = (props) => {
         <Form
           onSubmit={handleSubmit}
         >
-          <Form.Group controlId="newCourse">
+          <Form.Group>
             <Form.Control
               required
               type="text"
               placeholder="username"
+              autoComplete="username"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />
+            <br />
             <Form.Control
               required
               type="password"
               placeholder="password"
+              autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LoginForm from '../components/LoginForm'
+import SignupForm from '../components/SignupForm'
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -26,11 +27,18 @@ class WelcomePage extends Component {
           onClick={() => this.setState({ ...this.state, showLogin: true })}
           onHide={() => this.setState({ ...this.state, showLogin: false })}
         />
+        <SignupForm
+          show={this.state.showSignup}
+          onClick={() => this.setState({ ...this.state, showSignup: true })}
+          onHide={() => this.setState({ ...this.state, showSignup: false })}
+        />
 
         <p onClick={() => this.setState({ ...this.state, showLogin: true })}>
           Log In
         </p>
-        <p>Sign Up</p>
+        <p onClick={() => this.setState({ ...this.state, showSignup: true })}>
+          Sign Up
+        </p>
       </div >
     );
   }
