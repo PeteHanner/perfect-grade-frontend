@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable react/jsx-filename-extension */
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './containers/HomePage';
@@ -21,22 +25,22 @@ class App extends Component {
         <Switch>
           <Route
             exact
-path='/courses/:id'
+            path="/courses/:id"
             component={CoursePage}
           />
           <Route
             exact
-path ='/flattened'
+            path="/flattened"
             component={SchedulePage}
           />
           <Route
             exact
-path ='/about'
+            path="/about"
             component={AboutPage}
           />
           <Route
             exact
-path ='/welcome'
+            path="/welcome"
             component={WelcomePage}
           />
           <Route
@@ -62,4 +66,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(App),
+);
