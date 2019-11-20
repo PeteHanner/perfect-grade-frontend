@@ -1,59 +1,64 @@
+/* eslint-disable react/jsx-filename-extension */
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux'
-import { withRouter, Route, Switch } from "react-router-dom";
-import HomePage from './containers/HomePage'
-import CoursePage from './containers/CoursePage'
-import SchedulePage from './containers/SchedulePage'
-import AboutPage from './containers/AboutPage'
-import WelcomePage from './containers/WelcomePage'
-import { fetchCourses } from './actions/fetchCourses'
+import { connect } from 'react-redux';
+import { withRouter, Route, Switch } from 'react-router-dom';
+import HomePage from './containers/HomePage';
+import CoursePage from './containers/CoursePage';
+import SchedulePage from './containers/SchedulePage';
+import AboutPage from './containers/AboutPage';
+import WelcomePage from './containers/WelcomePage';
+import { fetchCourses } from './actions/fetchCourses';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchCourses()
+    this.props.fetchCourses();
   }
 
   render() {
     return (
-      <Fragment>
-        <div id='bg'/>
+      <>
+        <div id="bg" />
         <Switch>
           <Route
-            exact path='/courses/:id'
+            exact
+path='/courses/:id'
             component={CoursePage}
           />
           <Route
-            exact path ='/flattened'
+            exact
+path ='/flattened'
             component={SchedulePage}
           />
           <Route
-            exact path ='/about'
+            exact
+path ='/about'
             component={AboutPage}
           />
           <Route
-            exact path ='/welcome'
+            exact
+path ='/welcome'
             component={WelcomePage}
           />
           <Route
-            path='/'
+            path="/"
             component={HomePage}
           />
         </Switch>
-      </Fragment>
-    )
+      </>
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
     assignments: state.assignments,
-    courses: state.courses
-  }
+    courses: state.courses,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchCourses: () => dispatch(fetchCourses())
+    fetchCourses: () => dispatch(fetchCourses()),
   };
 }
 
