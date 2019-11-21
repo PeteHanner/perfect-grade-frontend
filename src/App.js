@@ -11,13 +11,13 @@ import CoursePage from './containers/CoursePage';
 import SchedulePage from './containers/SchedulePage';
 import AboutPage from './containers/AboutPage';
 import WelcomePage from './containers/WelcomePage';
-import { fetchCourses } from './actions/fetchCourses';
+// import { fetchCourses } from './actions/fetchCourses';
 import { validateUser } from './actions/validateUser';
 
 class App extends Component {
   componentDidMount() {
     this.props.validateUser();
-    this.props.fetchCourses();
+    // this.props.fetchCourses();
   }
 
   render() {
@@ -64,7 +64,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchCourses: () => dispatch(fetchCourses()),
+    // fetchCourses: () => dispatch(fetchCourses()),
     validateUser: () => dispatch(validateUser()),
   };
 }

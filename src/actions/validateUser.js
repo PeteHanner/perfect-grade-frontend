@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { loginUser } from './loginUser'
+import { fetchCourses } from './fetchCourses';
 
 export const validateUser = () => (dispatch) => {
   const { token } = localStorage;
@@ -21,7 +22,9 @@ export const validateUser = () => (dispatch) => {
         if (data.message) {
           localStorage.removeItem('token');
         } else {
-          dispatch(loginUser(data.user))
+          console.log(data);
+          dispatch(fetchCourses());
+          dispatch(loginUser(data.user));
         }
       });
   }
