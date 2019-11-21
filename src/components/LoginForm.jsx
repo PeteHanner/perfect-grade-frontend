@@ -1,8 +1,11 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
+import { loginUser } from '../actions/loginUser';
 
 const LoginForm = (props) => {
   const [userName, setUserName] = React.useState('');
@@ -12,10 +15,12 @@ const LoginForm = (props) => {
     e.preventDefault();
 
     const formData = {
-      name: userName,
-      password: password
-    }
-    console.log(formData)
+      user: {
+        name: userName,
+        password,
+      },
+    };
+    props.loginUser(formData);
     props.onHide();
   };
 
@@ -62,5 +67,8 @@ const LoginForm = (props) => {
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  loginUser: (formData) => dispatch(loginUser(formData)),
+});
 
-export default connect(null, null)(LoginForm);
+export default connect(null, mapDispatchToProps)(LoginForm);
