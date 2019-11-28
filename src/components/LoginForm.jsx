@@ -22,6 +22,9 @@ const LoginForm = (props) => {
     };
     props.loginUser(formData);
     props.onHide();
+    if (!localStorage.token) {
+      props.history.push('/');
+    }
   };
 
   return (

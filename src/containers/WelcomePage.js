@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LoginForm from '../components/LoginForm'
 import SignupForm from '../components/SignupForm'
+import { validateUser } from '../actions/validateUser';
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -12,6 +13,13 @@ class WelcomePage extends Component {
     this.state = {
       showLogin: false,
       showSignup: false
+    }
+  }
+
+  componentDidMount() {
+    this.props.validateUser();
+    if (!localStorage.token) {
+      this.props.history.push('/');
     }
   }
 
@@ -24,6 +32,7 @@ class WelcomePage extends Component {
 
         <LoginForm
           show={this.state.showLogin}
+          history={this.props.history}
           onClick={() => this.setState({ ...this.state, showLogin: true })}
           onHide={() => this.setState({ ...this.state, showLogin: false })}
         />
@@ -48,4 +57,10 @@ function mapStateToProps(state) {
   return { state };
 }
 
-export default connect(mapStateToProps)(WelcomePage);
+function mapDispatchToProps(dispatch) {
+  return {
+    validateUser: () => dispatch(validateUser()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WelcomePage);

@@ -17,8 +17,8 @@ import { validateUser } from './actions/validateUser';
 class App extends Component {
   componentDidMount() {
     this.props.validateUser();
-    if (!localStorage['token']) {
-      this.props.history.push('/welcome')
+    if (!localStorage.token) {
+      this.props.history.push('/welcome');
     }
   }
 
@@ -28,7 +28,7 @@ class App extends Component {
         <div id="bg" />
         <Switch>
           <Route
-            // exact
+            exact
             path="/welcome"
             component={WelcomePage}
           />

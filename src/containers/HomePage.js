@@ -10,10 +10,6 @@ import { withRouter } from 'react-router-dom';
 
 class HomePage extends Component {
 
-  // componentDidMount() {
-  //   this.props.validateUser();
-  // }
-
   render() {
     return (
       <div className="offside" id="home-page">
@@ -41,11 +37,5 @@ function mapStateToProps(state) {
     loading: state.coursesReducer.requesting,
   };
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     validateUser: () => dispatch(validateUser()),
-//   };
-// }
 
 export default withRouter(connect(mapStateToProps)(HomePage));
