@@ -25,6 +25,11 @@ class App extends Component {
         <Switch>
           <Route
             exact
+            path="/welcome"
+            component={WelcomePage}
+          />
+          <Route
+            exact
             path="/courses/:id"
             component={CoursePage}
           />
@@ -37,11 +42,6 @@ class App extends Component {
             exact
             path="/about"
             component={AboutPage}
-          />
-          <Route
-            exact
-            path="/welcome"
-            component={WelcomePage}
           />
           <Route
             path="/"

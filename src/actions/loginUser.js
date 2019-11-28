@@ -17,6 +17,7 @@ export const loginUser = (formData) => {
         if (data.message) {
           alert('No such user');
         } else {
+          console.log(data)
           localStorage.setItem('token', data.jwt);
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         }

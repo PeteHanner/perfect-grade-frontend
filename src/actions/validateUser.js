@@ -1,9 +1,11 @@
 /* eslint-disable import/prefer-default-export */
-import { loginUser } from './loginUser'
+import createHistory from 'history/createBrowserHistory';
+import { loginUser } from './loginUser';
 import { fetchCourses } from './fetchCourses';
 
 export const validateUser = () => (dispatch) => {
   const { token } = localStorage;
+  console.log('validating');
 
   const configObj = {
     method: 'GET',
@@ -14,18 +16,20 @@ export const validateUser = () => (dispatch) => {
     },
   };
 
-
   if (token) {
     return fetch('http://localhost:3001/profile', configObj)
       .then((r) => r.json())
       .then((data) => {
         if (data.message) {
           localStorage.removeItem('token');
+          console.log('Bad token');
+          createHistory().push('/welcome');
         } else {
           console.log(data);
-          dispatch(fetchCourses());
-          dispatch(loginUser(data.user));
+          dispatch(loginUser({ user: data.user }));
         }
-      });
+      })
+      .then(() => dispatch(fetchCourses()));
   }
+  return createHistory().push('/welcome');
 };
