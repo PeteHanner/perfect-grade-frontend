@@ -3,7 +3,7 @@ import { loginUser } from './loginUser';
 import { fetchCourses } from './fetchCourses';
 
 export const validateUser = () => (dispatch) => {
-  const { token } = localStorage;
+  const token = localStorage.token;
 
   const configObj = {
     method: 'GET',
@@ -19,7 +19,7 @@ export const validateUser = () => (dispatch) => {
       .then((r) => r.json())
       .then((data) => {
         if (data.message) {
-          localStorage.removeItem('token');
+          // localStorage.removeItem('token');
           console.log('Bad token');
         } else {
           console.log(data);

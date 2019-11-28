@@ -18,7 +18,7 @@ class WelcomePage extends Component {
 
   componentDidMount() {
     this.props.validateUser();
-    if (!localStorage.token) {
+    if (localStorage.token) {
       this.props.history.push('/');
     }
   }
