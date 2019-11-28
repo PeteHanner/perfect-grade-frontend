@@ -17,6 +17,9 @@ import { validateUser } from './actions/validateUser';
 class App extends Component {
   componentDidMount() {
     this.props.validateUser();
+    if (!localStorage['token']) {
+      this.props.history.push('/welcome')
+    }
   }
 
   render() {
