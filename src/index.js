@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import rootReducer from './reducers/rootReducer';
 import App from './App';
 
@@ -21,7 +21,7 @@ const store = createStore(rootReducer,
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter id="app-interface">
-      <App />
+      <Route component={App} />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),

@@ -1,3 +1,4 @@
+/* eslint-disable react/prefer-stateless-function */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/no-named-as-default-member */
@@ -24,7 +25,7 @@ class App extends Component {
         <div id="bg" />
         <Switch>
           <Route
-            exact
+            // exact
             path="/welcome"
             component={WelcomePage}
           />

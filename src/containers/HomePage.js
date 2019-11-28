@@ -4,9 +4,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CourseCards from '../components/CourseCards';
 import HomePageBtns from '../components/HomePageBtns';
+import { withRouter } from 'react-router-dom';
+// import { validateUser } from '../actions/validateUser';
 
 
 class HomePage extends Component {
+
+  // componentDidMount() {
+  //   this.props.validateUser();
+  // }
+
   render() {
     return (
       <div className="offside" id="home-page">
@@ -35,4 +42,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(HomePage);
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     validateUser: () => dispatch(validateUser()),
+//   };
+// }
+
+export default withRouter(connect(mapStateToProps)(HomePage));

@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import { loginUser } from './loginUser';
 import { fetchCourses } from './fetchCourses';
 
@@ -23,13 +23,14 @@ export const validateUser = () => (dispatch) => {
         if (data.message) {
           localStorage.removeItem('token');
           console.log('Bad token');
-          createHistory().push('/welcome');
+          createBrowserHistory().push('/welcome');
         } else {
           console.log(data);
           dispatch(loginUser({ user: data.user }));
         }
       })
       .then(() => dispatch(fetchCourses()));
+  } else {
+    createBrowserHistory().push('/welcome');
   }
-  return createHistory().push('/welcome');
 };
