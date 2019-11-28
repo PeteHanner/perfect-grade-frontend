@@ -3,18 +3,18 @@ import { loginUser } from './loginUser';
 import { fetchCourses } from './fetchCourses';
 
 export const validateUser = () => (dispatch) => {
-  const token = localStorage.token;
+  const authToken = localStorage.token;
 
   const configObj = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${authToken}`,
     },
   };
 
-  if (token) {
+  if (authToken) {
     return fetch('http://localhost:3001/profile', configObj)
       .then((r) => r.json())
       .then((data) => {

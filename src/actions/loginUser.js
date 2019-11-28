@@ -14,12 +14,12 @@ export const loginUser = (formData) => {
     fetch('http://localhost:3001/login', configObj)
       .then((r) => r.json())
       .then((data) => {
-        if (data.message) {
-          alert('No such user');
-        } else {
+        if (data.jwt) {
           console.log(data);
           localStorage.setItem('token', data.jwt);
           dispatch({ type: 'LOGGED_IN', payload: data.user });
+        } else {
+          console.log('No such user');
         }
       });
   };

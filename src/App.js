@@ -13,11 +13,14 @@ import SchedulePage from './containers/SchedulePage';
 import AboutPage from './containers/AboutPage';
 import WelcomePage from './containers/WelcomePage';
 import { validateUser } from './actions/validateUser';
+import { fetchCourses } from './actions/fetchCourses';
 
 class App extends Component {
   componentDidMount() {
     this.props.validateUser();
-    if (!localStorage.token) {
+    if (localStorage.token) {
+      this.props.fetchCourses();
+    } else {
       this.props.history.push('/welcome');
     }
   }
@@ -67,6 +70,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     validateUser: () => dispatch(validateUser()),
+    fetchCourses: () => dispatch(fetchCourses()),
   };
 }
 
