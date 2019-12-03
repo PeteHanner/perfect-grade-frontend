@@ -1,4 +1,4 @@
-export default function coursesReducer(
+export default function userReducer(
   state = {
     currentUser: null,
     requesting: false,
