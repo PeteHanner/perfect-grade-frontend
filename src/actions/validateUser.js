@@ -1,6 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-// import { loginUser } from './loginUser';
-import { fetchCourses } from './fetchCourses';
 
 export const validateUser = () => (dispatch) => {
   const authToken = localStorage.token;
@@ -19,13 +17,9 @@ export const validateUser = () => (dispatch) => {
       .then((r) => r.json())
       .then((data) => {
         if (data.message) {
-          // localStorage.removeItem('token');
-          console.log('Bad token');
+          localStorage.removeItem('token');
         } else {
-          console.log(data);
-          // dispatch(loginUser({ user: data.user }));
           dispatch({ type: 'LOGGED_IN', payload: data.user });
-          // dispatch(fetchCourses());
         }
       });
   }

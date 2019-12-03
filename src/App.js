@@ -18,6 +18,7 @@ import { fetchCourses } from './actions/fetchCourses';
 class App extends Component {
   componentDidMount() {
     this.props.validateUser();
+    this.props.fetchCourses();
     if (!localStorage.token) {
       this.props.history.push('/welcome');
     }

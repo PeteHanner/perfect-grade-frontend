@@ -12,18 +12,12 @@ import { fetchCourses } from '../actions/fetchCourses';
 
 class HomePage extends Component {
 
-  componentDidUpdate(prevProps) {
-    if (this.props.currentUser && prevProps.currentUser !== this.props.currentUser) {
-      this.props.fetchCourses()
-    }
-  }
-
   render() {
     return (
       <div className="offside" id="home-page">
         <img id="main-logo" alt="Perfect Grade Logo" src="https://i.imgur.com/yAkZCHP.png" />
         {
-          this.props.loading
+          this.props.loading || !(this.props.currentUser)
             ? <h5>Loading...</h5>
             : (
               <>
