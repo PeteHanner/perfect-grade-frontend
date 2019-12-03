@@ -15,7 +15,9 @@ export function fetchCourses() {
     dispatch({ type: 'REQUESTING_COURSES' });
     fetch('http://localhost:3001/courses', configObj)
       .then((r) => {
-        if (r.status !== 401) r.json();
+        if (r.status !== 401) {
+          return r.json();
+        }
       })
       .then((courses) => {
         if (courses) {
