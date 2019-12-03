@@ -23,7 +23,7 @@ class HomePage extends Component {
       <div className="offside" id="home-page">
         <img id="main-logo" alt="Perfect Grade Logo" src="https://i.imgur.com/yAkZCHP.png" />
         {
-          this.props.loading
+          this.props.loading || !(this.props.currentUser)
             ? <h5>Loading...</h5>
             : (
               <>
