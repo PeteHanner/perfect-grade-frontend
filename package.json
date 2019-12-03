@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "connected-react-router": "^6.6.1",
     "export-to-csv": "^0.2.1",
+    "history": "^4.10.1",
     "install": "^0.13.0",
     "mdbreact": "^4.22.0",
     "moment": "^2.24.0",
@@ -40,5 +42,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0"
   }
 }

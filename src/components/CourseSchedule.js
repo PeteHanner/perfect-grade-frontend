@@ -38,7 +38,6 @@ const CourseSchedule = (props) => {
           <h4>{moment(date).format('dddd, MMMM D, YYYY')}</h4>
           <ul>
             {asgmt_arr.sort((a, b) => (a.id > b.id) ? 1 : -1).map(a => {
-              {console.log(a)}
               return(
                 <li key={uuidv1()}>
                   {a.description}

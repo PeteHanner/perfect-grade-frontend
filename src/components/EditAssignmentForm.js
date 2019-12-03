@@ -1,45 +1,51 @@
-import React from 'react'
-import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import DatePicker from 'react-datepicker'
-import moment from 'moment'
-import { connect } from 'react-redux'
-import {editAssignment} from '../actions/editAssignment'
-import {deleteAssignment} from '../actions/deleteAssignment'
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable no-shadow */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import { connect } from 'react-redux';
+import { editAssignment } from '../actions/editAssignment';
+import { deleteAssignment } from '../actions/deleteAssignment';
 
 const EditAssignmentForm = (props) => {
-  const {dueDate, editAssignment, deleteAssignment, updateCourses, ...others} = props
-  const [newDesc, setNewDesc] = React.useState('')
-  const [newDate, setNewDate] = React.useState(new Date())
+  const {
+    dueDate, editAssignment, deleteAssignment, updateCourses, ...others
+  } = props;
+  const [newDesc, setNewDesc] = React.useState('');
+  const [newDate, setNewDate] = React.useState(new Date());
 
   React.useEffect(() => {
     setNewDesc(props.description);
-    setNewDate(props.dueDate)
-  }, [props])
+    setNewDate(props.dueDate);
+  }, [props]);
 
   const handleEditAssignment = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const formData = {
       id: props.id,
-      newDesc: newDesc,
+      newDesc,
       newDate: moment(newDate).format('MMMM D YYYY'),
-    }
-    props.editAssignment(formData)
-    props.onHide()
-  }
+    };
+    props.editAssignment(formData);
+    props.onHide();
+  };
 
   const handleDeleteAssignment = (e) => {
-    e.preventDefault()
-    const formData = {asgmtId: props.id}
-    props.deleteAssignment(formData)
-    props.onHide()
-  }
+    e.preventDefault();
+    const formData = { asgmtId: props.id };
+    props.deleteAssignment(formData);
+    props.onHide();
+  };
 
   return (
     <Modal
       {...others}
-      style={{textAlign:'center'}}
+      style={{ textAlign: 'center' }}
       centered
     >
       <Modal.Header closeButton>
@@ -49,36 +55,36 @@ const EditAssignmentForm = (props) => {
         <Form
           onSubmit={handleEditAssignment}
         >
-          <Form.Group controlId='assignmentDescription'>
+          <Form.Group controlId="assignmentDescription">
             <Form.Label>Description: </Form.Label>
             <Form.Control
               required
-              type='text'
+              type="text"
               value={newDesc}
-              onChange={e => setNewDesc(e.target.value)}
+              onChange={(e) => setNewDesc(e.target.value)}
             />
           </Form.Group>
-          <Form.Group controlId='assignmentDate'>
+          <Form.Group controlId="assignmentDate">
             <DatePicker
               selected={newDate}
-              onChange={date => {
+              onChange={(date) => {
                 setNewDate(date);
               }}
-              style={{display: 'inline'}}
+              style={{ display: 'inline' }}
               inline
             />
           </Form.Group>
           <Button
-            variant='success'
-            type='submit'
-            style={{float:'right'}}
+            variant="success"
+            type="submit"
+            style={{ float: 'right' }}
           >
             Submit
           </Button>
           <Button
-            variant='danger'
-            type='button'
-            style={{float:'left'}}
+            variant="danger"
+            type="button"
+            style={{ float: 'left' }}
             onClick={handleDeleteAssignment}
           >
             Delete This Assignment
@@ -86,20 +92,16 @@ const EditAssignmentForm = (props) => {
         </Form>
       </Modal.Body>
     </Modal>
-  )
-}
+  );
+};
 
-const mapStateToProps = state => {
-  return {
-    assignments: state.assignmentsReducer.assignments
-  };
-}
+const mapStateToProps = (state) => ({
+  assignments: state.assignmentsReducer.assignments,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    editAssignment: formData => dispatch(editAssignment(formData)),
-    deleteAssignment: formData => dispatch(deleteAssignment(formData)),
-  };
-}
+const mapDispatchToProps = (dispatch) => ({
+  editAssignment: (formData) => dispatch(editAssignment(formData)),
+  deleteAssignment: (formData) => dispatch(deleteAssignment(formData)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditAssignmentForm)
+export default connect(mapStateToProps, mapDispatchToProps)(EditAssignmentForm);

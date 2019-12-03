@@ -1,32 +1,32 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button'
-import { withRouter } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import { withRouter } from 'react-router-dom';
 import { ExportToCsv } from 'export-to-csv';
 
 
 const ScheduleSideBar = (props) => {
-
   const goHome = (e) => {
-    e.preventDefault()
-    props.history.push(`/`)
-  }
+    e.preventDefault();
+    props.history.push('/');
+  };
 
-  const csvExport = (e) => {
+  const csvExport = () => {
     if (!props.loading) {
       // array to store data
-      const data = []
+      const data = [];
       // necessary info from each post-flattened asgmt
-      props.assignments.forEach(date => {
-        const asgmts = date[1]
-        asgmts.forEach(a => {
+      props.assignments.forEach((date) => {
+        const asgmts = date[1];
+        asgmts.forEach((a) => {
           const fields = {
             TASK: a.description,
             LIST: a.course.name,
-            DUEDATE: a.adj_date
-          }
-          data.push(fields)
-        })
-      })
+            DUEDATE: a.adj_date,
+          };
+          data.push(fields);
+        });
+      });
       // CSV file options setup
       const options = {
         fieldSeparator: ' , ',
@@ -44,27 +44,27 @@ const ScheduleSideBar = (props) => {
       const csvExporter = new ExportToCsv(options);
       csvExporter.generateCsv(data);
     }
-  }
+  };
 
   return (
-    <div className='sidenav'>
+    <div className="sidenav">
       <Button
-        id='export-button'
+        id="export-button"
         onClick={csvExport}
       >
         Export To CSV
       </Button>
-      <br/>
+      <br />
       <Button
-        variant='outline-primary'
-        size='sm'
+        variant="outline-primary"
+        size="sm"
         onClick={goHome}
-        className='home-btn'
+        className="home-btn"
       >
-        {`<<  Home`}
+        {'<<  Home'}
       </Button>
     </div>
-  )
-}
+  );
+};
 
-export default withRouter(ScheduleSideBar)
+export default withRouter(ScheduleSideBar);

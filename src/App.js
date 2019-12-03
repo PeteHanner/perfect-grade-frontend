@@ -1,55 +1,77 @@
+/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HomePage from './containers/HomePage'
-import CoursePage from './containers/CoursePage'
-import SchedulePage from './containers/SchedulePage'
-import AboutPage from './containers/AboutPage'
-import { fetchCourses } from './actions/fetchCourses'
+import { connect } from 'react-redux';
+import { withRouter, Route, Switch } from 'react-router-dom';
+import HomePage from './containers/HomePage';
+import CoursePage from './containers/CoursePage';
+import SchedulePage from './containers/SchedulePage';
+import AboutPage from './containers/AboutPage';
+import WelcomePage from './containers/WelcomePage';
+import { validateUser } from './actions/validateUser';
+import { fetchCourses } from './actions/fetchCourses';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchCourses()
+    this.props.validateUser();
+    if (!localStorage.token) {
+      this.props.history.push('/welcome');
+    }
   }
 
   render() {
     return (
-      <BrowserRouter id='app-interface'>
-      <div id='bg'/>
+      <>
+        <div id="bg" />
         <Switch>
           <Route
-            exact path='/courses/:id'
+            exact
+            path="/welcome"
+            component={WelcomePage}
+          />
+          <Route
+            exact
+            path="/courses/:id"
             component={CoursePage}
           />
           <Route
-            exact path ='/flattened'
+            exact
+            path="/flattened"
             component={SchedulePage}
           />
           <Route
-            exact path ='/about'
+            exact
+            path="/about"
             component={AboutPage}
           />
           <Route
-            path='/'
+            path="/"
             component={HomePage}
           />
         </Switch>
-      </BrowserRouter>
-    )
+      </>
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
     assignments: state.assignments,
-    courses: state.courses
-  }
+    courses: state.courses,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchCourses: () => dispatch(fetchCourses())
+    validateUser: () => dispatch(validateUser()),
+    fetchCourses: () => dispatch(fetchCourses()),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(App),
+);
