@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { loginUser } from './loginUser';
+// import { loginUser } from './loginUser';
 import { fetchCourses } from './fetchCourses';
 
 export const validateUser = () => (dispatch) => {
@@ -25,8 +25,8 @@ export const validateUser = () => (dispatch) => {
           console.log(data);
           // dispatch(loginUser({ user: data.user }));
           dispatch({ type: 'LOGGED_IN', payload: data.user });
+          // dispatch(fetchCourses());
         }
-      })
-      .then(() => dispatch(fetchCourses()));
+      });
   }
 };

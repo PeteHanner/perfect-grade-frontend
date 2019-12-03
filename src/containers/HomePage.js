@@ -5,10 +5,18 @@ import { connect } from 'react-redux';
 import CourseCards from '../components/CourseCards';
 import HomePageBtns from '../components/HomePageBtns';
 import { withRouter } from 'react-router-dom';
+import { fetchCourses } from '../actions/fetchCourses';
+
 // import { validateUser } from '../actions/validateUser';
 
 
 class HomePage extends Component {
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentUser && prevProps.currentUser !== this.props.currentUser) {
+      this.props.fetchCourses()
+    }
+  }
 
   render() {
     return (
@@ -33,9 +41,18 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
   return {
+    currentUser: state.userReducer.currentUser,
     courses: state.coursesReducer.courses,
     loading: state.coursesReducer.requesting,
   };
 }
 
-export default withRouter(connect(mapStateToProps)(HomePage));
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchCourses: () => dispatch(fetchCourses()),
+  };
+}
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomePage),
+);
