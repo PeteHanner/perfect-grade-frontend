@@ -1,6 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-// import { loginUser } from './loginUser';
-import { fetchCourses } from './fetchCourses';
 
 export const validateUser = () => (dispatch) => {
   const authToken = localStorage.token;

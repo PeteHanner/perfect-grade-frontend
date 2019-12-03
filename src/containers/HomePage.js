@@ -12,12 +12,6 @@ import { fetchCourses } from '../actions/fetchCourses';
 
 class HomePage extends Component {
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.currentUser && prevProps.currentUser !== this.props.currentUser) {
-  //     this.props.fetchCourses()
-  //   }
-  // }
-
   render() {
     return (
       <div className="offside" id="home-page">
