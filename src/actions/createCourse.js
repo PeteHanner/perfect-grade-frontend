@@ -1,23 +1,24 @@
+/* eslint-disable import/prefer-default-export */
 export function createCourse(formData) {
-
+  const authToken = localStorage.token;
   const configObj = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${authToken}`,
     },
-    body: JSON.stringify(formData)
-  }
+    body: JSON.stringify(formData),
+  };
 
-  return dispatch => {
+  return (dispatch) => {
     dispatch({ type: 'CREATING_COURSE' });
     fetch('http://localhost:3001/courses', configObj)
-    .then(r => r.json())
-    .then(newCourse => {
-      dispatch({ type: 'COURSE_CREATED', payload: newCourse });
-      dispatch({ type: 'CHANGES_MADE' })
-
-    })
-    .catch(error => alert(`There was an error (${error.message})`));
-  }
+      .then((r) => r.json())
+      .then((newCourse) => {
+        dispatch({ type: 'COURSE_CREATED', payload: newCourse });
+        dispatch({ type: 'CHANGES_MADE' });
+      })
+      .catch((error) => alert(`There was an error (${error.message})`));
+  };
 }
