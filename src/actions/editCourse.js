@@ -2,11 +2,14 @@
 import { fetchCourses } from './fetchCourses';
 
 export function editCourse(formData) {
+  const authToken = localStorage.token;
+
   const configObj = {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
+      Authorization: `Bearer ${authToken}`,
     },
     body: JSON.stringify(formData),
   };

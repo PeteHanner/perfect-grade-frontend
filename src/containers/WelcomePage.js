@@ -3,17 +3,17 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LoginForm from '../components/LoginForm'
-import SignupForm from '../components/SignupForm'
+import LoginForm from '../components/LoginForm';
+import SignupForm from '../components/SignupForm';
 import { validateUser } from '../actions/validateUser';
 
 class WelcomePage extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       showLogin: false,
-      showSignup: false
-    }
+      showSignup: false,
+    };
   }
 
   componentDidMount() {
@@ -48,7 +48,7 @@ class WelcomePage extends Component {
         <p onClick={() => this.setState({ ...this.state, showSignup: true })}>
           Sign Up
         </p>
-      </div >
+      </div>
     );
   }
 }

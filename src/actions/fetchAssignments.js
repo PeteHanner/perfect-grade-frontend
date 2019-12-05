@@ -1,30 +1,38 @@
-import { madeFirstRequest } from './madeFirstRequest'
-import { madeFreshRequest } from './madeFreshRequest'
+/* eslint-disable import/prefer-default-export */
+import { madeFirstRequest } from './madeFirstRequest';
+import { madeFreshRequest } from './madeFreshRequest';
 
 export function fetchAssignments() {
-
+  const authToken = localStorage.token;
+  const configObj = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${authToken}`,
+    },
+  };
   return (dispatch, getState) => {
-    let requestType = ''
-    const { firstRequest } = getState().cycleReducer
+    let requestType = '';
+    const { firstRequest } = getState().cycleReducer;
 
     if (firstRequest) {
-      requestType = 'first'
+      requestType = 'first';
     } else {
-      requestType = 'fresh'
+      requestType = 'fresh';
     }
 
     dispatch({ type: 'REQUESTING_ASSIGNMENTS' });
-    fetch(`http://localhost:3001/assignments/${requestType}`)
-      .then(r => r.json())
-      .then(asgmts => {
-        // // TODO: logic to set cycle state goes here
+    fetch(`http://localhost:3001/assignments/${requestType}`, configObj)
+      .then((r) => r.json())
+      .then((asgmts) => {
         if (firstRequest) {
-          dispatch(madeFirstRequest())
+          dispatch(madeFirstRequest());
         } else {
-          dispatch(madeFreshRequest())
+          dispatch(madeFreshRequest());
         }
-        dispatch({ type: 'ASSIGNMENTS_LOADED', payload: asgmts })
+        dispatch({ type: 'ASSIGNMENTS_LOADED', payload: asgmts });
       })
-      .catch(error => alert(`There was an error (${error.message})`));
+      .catch((error) => alert(`There was an error (${error.message})`));
   };
 }

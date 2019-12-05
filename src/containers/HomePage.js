@@ -1,17 +1,18 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import CourseCards from '../components/CourseCards';
 import HomePageBtns from '../components/HomePageBtns';
-import { withRouter } from 'react-router-dom';
 import { fetchCourses } from '../actions/fetchCourses';
 
 // import { validateUser } from '../actions/validateUser';
 
 
 class HomePage extends Component {
-
   render() {
     return (
       <div className="offside" id="home-page">
