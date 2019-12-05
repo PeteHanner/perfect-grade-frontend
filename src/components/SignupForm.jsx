@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
+import { createUser } from '../actions/createUser';
+
 
 const SignupForm = (props) => {
   const [userName, setUserName] = React.useState('');
@@ -11,6 +14,23 @@ const SignupForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (password === passwordConfirm) {
+      const formData = {
+        user: {
+          name: userName,
+          password,
+        },
+      };
+      props.createUser(formData);
+      props.onHide();
+      if (!localStorage.token) {
+        props.history.push('/');
+      }
+    } else {
+      alert('Password does not match');
+    }
+
     props.onHide();
   };
 
@@ -66,5 +86,8 @@ const SignupForm = (props) => {
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  createUser: (formData) => dispatch(createUser(formData)),
+});
 
 export default connect(null, null)(SignupForm);
