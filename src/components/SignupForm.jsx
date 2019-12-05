@@ -43,16 +43,16 @@ const SignupForm = (props) => {
               required
               type="password"
               placeholder="password"
-              autoComplete="current-password"
+              autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <br />
             <Form.Control
               required
-              type="password-confirm"
+              type="password"
               placeholder="confirm password"
-              autoComplete="current-password"
+              autoComplete="new-password"
               value={passwordConfirm}
               onChange={(e) => setPasswordConfirm(e.target.value)}
             />
