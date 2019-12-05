@@ -15,7 +15,6 @@ export const loginUser = (formData) => {
       .then((r) => r.json())
       .then((data) => {
         if (data.jwt) {
-          console.log(data);
           localStorage.setItem('token', data.jwt);
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
