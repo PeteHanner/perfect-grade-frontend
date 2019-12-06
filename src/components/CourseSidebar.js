@@ -10,12 +10,12 @@ const CourseSidebar = (props) => {
     props.history.push(`/`)
   }
 
-  return(
+  return (
     <div className='sidenav'>
       <h4 id='add-header'>Add An Assignment</h4>
       <p className='help-text'>As you add assignments, make sure to enter the due date as assigned.</p>
       <p className='help-text'>Your finalized flat schedule will automatically update everything with the dates you should actually complete the assignment.</p>
-      <br/>
+      <br />
       <NewAssignmentForm />
       <Button
         className='home-btn'

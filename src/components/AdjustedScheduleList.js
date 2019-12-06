@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
@@ -5,7 +6,6 @@ import moment from 'moment';
 
 // Parent: SchedulePage
 const AdjustedScheduleList = (props) => {
-
   const renderAsgmts = () => props.assignments.map((entry) => {
     // Store adjusted day & array of asgmts for that day in vars
     const day = entry[0];
@@ -24,7 +24,11 @@ const AdjustedScheduleList = (props) => {
                   {' '}
                   <br />
                   {' '}
-                  <span className='course-title'>({a.course.name})</span>
+                  <span className="course-title">
+                    (
+                    {a.course.name}
+                    )
+                  </span>
                 </li>
               ))
               : null
