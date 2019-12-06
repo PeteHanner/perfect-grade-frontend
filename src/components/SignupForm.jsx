@@ -23,15 +23,13 @@ const SignupForm = (props) => {
         },
       };
       props.createUser(formData);
-      props.onHide();
-      if (!localStorage.token) {
+      if (localStorage.token) {
+        props.onHide();
         props.history.push('/');
       }
     } else {
       alert('Password does not match');
     }
-
-    props.onHide();
   };
 
   return (
@@ -90,4 +88,4 @@ const mapDispatchToProps = (dispatch) => ({
   createUser: (formData) => dispatch(createUser(formData)),
 });
 
-export default connect(null, null)(SignupForm);
+export default connect(null, mapDispatchToProps)(SignupForm);

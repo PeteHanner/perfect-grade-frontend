@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prefer-stateless-function */
@@ -6,6 +8,7 @@ import { connect } from 'react-redux';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 import { validateUser } from '../actions/validateUser';
+import { fetchCourses } from '../actions/fetchCourses';
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -19,7 +22,9 @@ class WelcomePage extends Component {
   componentDidMount() {
     this.props.validateUser();
     if (localStorage.token) {
+      this.props.fetchCourses();
       this.props.history.push('/');
+
     }
   }
 
@@ -38,6 +43,7 @@ class WelcomePage extends Component {
         />
         <SignupForm
           show={this.state.showSignup}
+          history={this.props.history}
           onClick={() => this.setState({ ...this.state, showSignup: true })}
           onHide={() => this.setState({ ...this.state, showSignup: false })}
         />
@@ -60,6 +66,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     validateUser: () => dispatch(validateUser()),
+    fetchCourses: () => dispatch(fetchCourses()),
   };
 }
 

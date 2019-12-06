@@ -9,10 +9,8 @@ import CourseCards from '../components/CourseCards';
 import HomePageBtns from '../components/HomePageBtns';
 import { fetchCourses } from '../actions/fetchCourses';
 
-// import { validateUser } from '../actions/validateUser';
-
-
 class HomePage extends Component {
+
   render() {
     return (
       <div className="offside" id="home-page">
