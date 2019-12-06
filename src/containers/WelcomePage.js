@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prefer-stateless-function */
@@ -38,6 +38,8 @@ class WelcomePage extends Component {
         <LoginForm
           show={this.state.showLogin}
           history={this.props.history}
+          currentUser={this.props.currentUser}
+          coursesLoading={this.props.coursesLoading}
           onClick={() => this.setState({ ...this.state, showLogin: true })}
           onHide={() => this.setState({ ...this.state, showLogin: false })}
         />
@@ -62,7 +64,7 @@ class WelcomePage extends Component {
 function mapStateToProps(state) {
   return {
     currentUser: state.userReducer.currentUser,
-    coursesLoading: state.coursesReducer.requesting
+    coursesLoading: state.coursesReducer.requesting,
   };
 }
 
