@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
+// Parent: SchedulePage
 const AdjustedScheduleList = (props) => {
 
   const renderAsgmts = () => props.assignments.map((entry) => {

@@ -6,7 +6,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import NewCourseForm from './NewCourseForm';
 
+// Cards for user's courses; parent = HomePage
 const CourseCards = (props) => {
+  // Loop of colors for course cards
   const colorArray = [
     'a20705',
     '610A95',
@@ -16,11 +18,13 @@ const CourseCards = (props) => {
     'c26702',
   ];
 
+  // Redirect to CoursePage component
   const goToCoursePage = (e) => {
     e.preventDefault();
     props.history.push(`/courses/${e.target.dataset.id}`);
   };
 
+  // List out all user's courses with looping colors
   const renderCourseCards = () => props.courses.map((course, index) => {
     const bgColor = `#${colorArray[index % 6]}`;
     return (
@@ -38,8 +42,10 @@ const CourseCards = (props) => {
     );
   });
 
+  // Controls visibility of form to add new course
   const [newCourseShow, setNewCourseShow] = React.useState(false);
 
+  // Show all course cards plus button to add new course
   return (
     <div id="course-cards">
       {renderCourseCards()}
