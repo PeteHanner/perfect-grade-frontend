@@ -29,9 +29,6 @@ const LoginForm = (props) => {
     if (!localStorage.token) {
       props.history.push('/welcome');
     }
-    // else {
-    //   props.history.push('/');
-    // }
   };
 
   useEffect(() => {
