@@ -4,9 +4,13 @@ import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
 const AdjustedScheduleList = (props) => {
+
   const renderAsgmts = () => props.assignments.map((entry) => {
+    // Store adjusted day & array of asgmts for that day in vars
     const day = entry[0];
     const asgs = entry[1];
+
+    // Create date-grouped list of asgmts
     return (
       <Fragment key={day}>
         <h5>{moment(day).format('dddd MMM. D, YYYY')}</h5>

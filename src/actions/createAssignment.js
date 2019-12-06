@@ -14,6 +14,7 @@ export function createAssignment(formData) {
     body: JSON.stringify(formData),
   };
 
+  // Send new assignment to server with auth token
   return (dispatch) => {
     dispatch({ type: 'CREATING_ASSIGNMENT' });
     fetch('http://localhost:3001/assignments', configObj)
