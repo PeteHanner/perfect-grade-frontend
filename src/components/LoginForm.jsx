@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -10,6 +10,7 @@ import { loginUser } from '../actions/loginUser';
 const LoginForm = (props) => {
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [errorMsg, setErrorMsg] = React.useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,14 +21,21 @@ const LoginForm = (props) => {
         password,
       },
     };
+
+    // TODO: set error msg rather than alerting
     props.loginUser(formData);
+
     // props.onHide();
     if (!localStorage.token) {
       props.history.push('/welcome');
-    } else {
-      props.history.push('/');
     }
   };
+
+  useEffect(() => {
+    if (props.currentUser && !props.coursesLoading) {
+      props.history.push('/');
+    }
+  }, [props.currentUser, props.coursesLoading]);
 
   return (
     <Modal
@@ -41,6 +49,7 @@ const LoginForm = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <p>{errorMsg}</p>
         <Form
           onSubmit={handleSubmit}
         >
