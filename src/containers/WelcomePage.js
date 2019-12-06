@@ -60,7 +60,10 @@ class WelcomePage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { state };
+  return {
+    currentUser: state.userReducer.currentUser,
+    coursesLoading: state.coursesReducer.requesting
+  };
 }
 
 function mapDispatchToProps(dispatch) {

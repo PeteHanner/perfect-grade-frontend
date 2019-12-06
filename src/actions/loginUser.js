@@ -18,7 +18,7 @@ export const loginUser = (formData) => {
           localStorage.setItem('token', data.jwt);
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
-          console.log('No such user');
+          alert('Incorrect/nonexistent username or password.')
         }
       });
   };

@@ -21,8 +21,10 @@ const LoginForm = (props) => {
       },
     };
     props.loginUser(formData);
-    props.onHide();
+    // props.onHide();
     if (!localStorage.token) {
+      props.history.push('/welcome');
+    } else {
       props.history.push('/');
     }
   };
