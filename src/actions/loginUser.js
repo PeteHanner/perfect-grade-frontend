@@ -18,7 +18,8 @@ export const loginUser = (formData) => {
           localStorage.setItem('token', data.jwt);
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
-          alert('Incorrect/nonexistent username or password.')
+          // TODO: set error msg rather than alerting in LoginForm
+          alert('Incorrect/nonexistent username or password.');
         }
       });
   };

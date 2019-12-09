@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/loginUser';
+import { fetchCourses } from '../actions/fetchCourses';
 
 const LoginForm = (props) => {
   const [userName, setUserName] = React.useState('');
@@ -31,6 +32,13 @@ const LoginForm = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (props.currentUser) {
+      props.fetchCourses();
+    }
+  }, [props.currentUser]);
+
+  // Redirect to homepage once user is set and courses are fetched
   useEffect(() => {
     if (props.currentUser && !props.coursesLoading) {
       props.history.push('/');
@@ -83,6 +91,7 @@ const LoginForm = (props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (formData) => dispatch(loginUser(formData)),
+  fetchCourses: () => dispatch(fetchCourses()),
 });
 
 export default connect(null, mapDispatchToProps)(LoginForm);

@@ -10,7 +10,6 @@ import HomePageBtns from '../components/HomePageBtns';
 import { fetchCourses } from '../actions/fetchCourses';
 
 class HomePage extends Component {
-
   render() {
     return (
       <div className="offside" id="home-page">

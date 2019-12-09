@@ -24,7 +24,6 @@ class WelcomePage extends Component {
     if (localStorage.token) {
       this.props.fetchCourses();
       this.props.history.push('/');
-
     }
   }
 
