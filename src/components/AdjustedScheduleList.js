@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
@@ -39,9 +39,17 @@ const AdjustedScheduleList = (props) => {
   });
 
   return (
-    <div id="adj-schedule-list">
-      {renderAsgmts()}
-    </div>
+    props.assignments.length > 0
+      ? (
+        <div id="adj-schedule-list">
+          {renderAsgmts()}
+        </div>
+      )
+      : (
+        <div>
+          <p>No assignments added yet!</p>
+        </div>
+      )
   );
 };
 
