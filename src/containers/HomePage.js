@@ -10,6 +10,14 @@ import HomePageBtns from '../components/HomePageBtns';
 import { fetchCourses } from '../actions/fetchCourses';
 
 class HomePage extends Component {
+  componentDidMount() {
+    if (localStorage.token) {
+      this.props.fetchCourses()
+    } else {
+      this.props.history.push('/welcome')
+    }
+  }
+
   render() {
     return (
       <div className="offside" id="home-page">
