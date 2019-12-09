@@ -11,8 +11,8 @@ import { fetchCourses } from '../actions/fetchCourses';
 const LoginForm = (props) => {
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [errorMsg, setErrorMsg] = React.useState('');
 
+  // Send login credentials to backend
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,15 +23,11 @@ const LoginForm = (props) => {
       },
     };
 
-    // TODO: set error msg rather than alerting
     props.loginUser(formData);
-
-    // props.onHide();
-    if (!localStorage.token) {
-      props.history.push('/welcome');
-    }
   };
 
+
+  // Fetch courses while redirecting from successful login
   useEffect(() => {
     if (props.currentUser) {
       props.fetchCourses();
@@ -57,7 +53,9 @@ const LoginForm = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>{errorMsg}</p>
+        <p className="error-msg">
+          {props.errorMsg}
+        </p>
         <Form
           onSubmit={handleSubmit}
         >
@@ -89,9 +87,14 @@ const LoginForm = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  loading: state.userReducer.requesting,
+  errorMsg: state.userReducer.errorMsg,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (formData) => dispatch(loginUser(formData)),
   fetchCourses: () => dispatch(fetchCourses()),
 });
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

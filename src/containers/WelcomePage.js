@@ -19,13 +19,13 @@ class WelcomePage extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.validateUser();
-    if (localStorage.token) {
-      this.props.fetchCourses();
-      this.props.history.push('/');
-    }
-  }
+  // componentDidMount() {
+  //   this.props.validateUser();
+  //   if (localStorage.token) {
+  //     this.props.fetchCourses();
+  //     this.props.history.push('/');
+  //   }
+  // }
 
   render() {
     return (

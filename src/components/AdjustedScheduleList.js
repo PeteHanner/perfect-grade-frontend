@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
