@@ -19,7 +19,7 @@ export const loginUser = (formData) => {
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
           // TODO: set error msg rather than alerting in LoginForm
-          alert('Incorrect/nonexistent username or password.')
+          alert('Incorrect/nonexistent username or password.');
         }
       });
   };
