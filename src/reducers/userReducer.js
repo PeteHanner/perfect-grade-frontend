@@ -17,13 +17,14 @@ export default function userReducer(
         ...state,
         currentUser: action.payload,
         requesting: false,
+        errorMsg: '',
       };
     case 'BAD_LOGIN':
       return {
         ...state,
         requesting: false,
         errorMsg: 'Invalid username or password',
-      }
+      };
     default:
       return state;
   }
