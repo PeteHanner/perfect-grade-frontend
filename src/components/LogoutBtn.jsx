@@ -2,10 +2,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
+import { logoutUser } from '../actions/logoutUser';
 
 const LogoutBtn = (props) => {
   const removeAuthToken = () => {
-    localStorage.removeItem('token');
+    logoutUser();
     props.history.push('/welcome');
   };
 

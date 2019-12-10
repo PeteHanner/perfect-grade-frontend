@@ -25,6 +25,11 @@ export default function userReducer(
         requesting: false,
         errorMsg: 'Invalid username or password',
       };
+    case 'LOG_OUT':
+      return {
+        ...state,
+        currentUser: null,
+      }
     default:
       return state;
   }

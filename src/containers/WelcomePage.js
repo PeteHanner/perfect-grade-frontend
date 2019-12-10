@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 import { validateUser } from '../actions/validateUser';
-import { fetchCourses } from '../actions/fetchCourses';
+// import { fetchCourses } from '../actions/fetchCourses';
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -18,14 +18,6 @@ class WelcomePage extends Component {
       showSignup: false,
     };
   }
-
-  // componentDidMount() {
-  //   this.props.validateUser();
-  //   if (localStorage.token) {
-  //     this.props.fetchCourses();
-  //     this.props.history.push('/');
-  //   }
-  // }
 
   render() {
     return (
@@ -70,7 +62,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     validateUser: () => dispatch(validateUser()),
-    fetchCourses: () => dispatch(fetchCourses()),
+    // fetchCourses: () => dispatch(fetchCourses()),
   };
 }
 
