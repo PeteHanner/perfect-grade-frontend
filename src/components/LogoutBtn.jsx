@@ -2,11 +2,12 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { logoutUser } from '../actions/logoutUser';
 
 const LogoutBtn = (props) => {
   const removeAuthToken = () => {
-    logoutUser();
+    props.logoutUser();
     props.history.push('/welcome');
   };
 
@@ -22,4 +23,10 @@ const LogoutBtn = (props) => {
   );
 };
 
-export default withRouter(LogoutBtn);
+const mapDispatchToProps = (dispatch) => ({
+  logoutUser: () => dispatch(logoutUser())
+});
+
+export default withRouter(
+  connect(null, mapDispatchToProps)(LogoutBtn)
+);

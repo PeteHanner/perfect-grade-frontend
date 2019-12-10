@@ -3,5 +3,5 @@ export function logoutUser() {
   return (dispatch) => {
     dispatch({ type: 'LOG_OUT' });
     localStorage.removeItem('token');
-  };
+  }
 }
