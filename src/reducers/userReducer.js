@@ -25,11 +25,23 @@ export default function userReducer(
         requesting: false,
         errorMsg: 'Invalid username or password',
       };
+    case 'BAD_CREATION':
+      return {
+        ...state,
+        requesting: false,
+        errorMsg: 'Failed to create account',
+      };
+    case 'PASSWORD_MISMATCH':
+      return {
+        ...state,
+        requesting: false,
+        errorMsg: 'Passwords do not match',
+      };
     case 'LOG_OUT':
       return {
         ...state,
         currentUser: null,
-      }
+      };
     default:
       return state;
   }

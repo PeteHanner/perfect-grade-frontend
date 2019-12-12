@@ -16,10 +16,9 @@ export const createUser = (formData) => {
       .then((data) => {
         if (data.jwt) {
           localStorage.setItem('token', data.jwt);
-          console.log(data)
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
-          alert('Failed to create account');
+          dispatch({ type: 'BAD_CREATION' });
         }
       });
   };

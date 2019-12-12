@@ -16,7 +16,6 @@ export const loginUser = (formData) => {
       .then((data) => {
         if (data.jwt) {
           localStorage.setItem('token', data.jwt);
-          console.log(localStorage.token)
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
           dispatch({ type: 'BAD_LOGIN' });

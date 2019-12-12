@@ -29,7 +29,7 @@ const SignupForm = (props) => {
         props.history.push('/');
       }
     } else {
-      alert('Password does not match');
+      props.passwordMismatch();
     }
   };
 
@@ -45,6 +45,9 @@ const SignupForm = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <p className="error-msg">
+          {props.errorMsg}
+        </p>
         <Form
           onSubmit={handleSubmit}
         >
@@ -85,8 +88,14 @@ const SignupForm = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  createUser: (formData) => dispatch(createUser(formData)),
+const mapStateToProps = (state) => ({
+  loading: state.userReducer.requesting,
+  errorMsg: state.userReducer.errorMsg,
 });
 
-export default connect(null, mapDispatchToProps)(SignupForm);
+const mapDispatchToProps = (dispatch) => ({
+  createUser: (formData) => dispatch(createUser(formData)),
+  passwordMismatch: () => dispatch({ type: 'PASSWORD_MISMATCH' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
