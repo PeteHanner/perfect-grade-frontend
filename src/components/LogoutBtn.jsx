@@ -24,9 +24,9 @@ const LogoutBtn = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  logoutUser: () => dispatch(logoutUser())
+  logoutUser: () => dispatch(logoutUser()),
 });
 
 export default withRouter(
-  connect(null, mapDispatchToProps)(LogoutBtn)
+  connect(null, mapDispatchToProps)(LogoutBtn),
 );

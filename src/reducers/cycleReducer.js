@@ -25,7 +25,7 @@ export default function cycleReducer(
       return {
         firstRequest: true,
         freshRequest: false,
-      }
+      };
     default:
       return state;
   }
