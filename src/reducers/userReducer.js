@@ -29,7 +29,7 @@ export default function userReducer(
       return {
         ...state,
         requesting: false,
-        errorMsg: 'Failed to create account',
+        errorMsg: action.payload,
       };
     case 'PASSWORD_MISMATCH':
       return {

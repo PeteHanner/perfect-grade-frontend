@@ -45,9 +45,9 @@ const SignupForm = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p className="error-msg">
+        <ul className="error-msg">
           {props.errorMsg}
-        </p>
+        </ul>
         <Form
           onSubmit={handleSubmit}
         >

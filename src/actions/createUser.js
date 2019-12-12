@@ -18,7 +18,8 @@ export const createUser = (formData) => {
           localStorage.setItem('token', data.jwt);
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
-          dispatch({ type: 'BAD_CREATION' });
+          const { error } = data;
+          dispatch({ type: 'BAD_CREATION', payload: error.join('; ') });
         }
       });
   };
