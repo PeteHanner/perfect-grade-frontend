@@ -21,6 +21,11 @@ export default function cycleReducer(
         ...state,
         freshRequest: false,
       };
+    case 'LOG_OUT':
+      return {
+        firstRequest: true,
+        freshRequest: false,
+      }
     default:
       return state;
   }
