@@ -19,7 +19,7 @@ export const createUser = (formData) => {
           dispatch({ type: 'LOGGED_IN', payload: data.user });
         } else {
           const { error } = data;
-          dispatch({ type: 'BAD_CREATION', payload: error.join('; ') });
+          dispatch({ type: 'BAD_CREATION', payload: error });
         }
       });
   };

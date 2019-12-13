@@ -42,7 +42,7 @@ const LoginForm = (props) => {
   }, [props.currentUser, props.coursesLoading]);
 
   const errorList = () => {
-    if (props.errorMsg.length > 0) {
+    if (props.errorMsg.length > 0 && props.show) {
       return props.errorMsg.map((msg) => <li>{msg}</li>);
     }
   };

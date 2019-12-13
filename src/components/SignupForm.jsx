@@ -33,6 +33,12 @@ const SignupForm = (props) => {
     }
   };
 
+  const errorList = () => {
+    if (props.errorMsg.length > 0 && props.show) {
+      return props.errorMsg.map((msg) => <li>{msg}</li>);
+    }
+  };
+
   return (
     <Modal
       onHide={props.onHide}
@@ -46,7 +52,7 @@ const SignupForm = (props) => {
       </Modal.Header>
       <Modal.Body>
         <ul className="error-msg">
-          {props.errorMsg}
+          {errorList()}
         </ul>
         <Form
           onSubmit={handleSubmit}
