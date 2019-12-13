@@ -26,9 +26,6 @@ class WelcomePage extends Component {
         <h2 id="welcome-header">
           Welcome to
         </h2>
-        {/* <h2 id="welcome-app-name">
-          Perfect Grade
-        </h2> */}
         <img id="main-logo" alt="Perfect Grade Logo" src="https://i.imgur.com/yAkZCHP.png" />
 
         <LoginForm
@@ -59,14 +56,6 @@ class WelcomePage extends Component {
             Sign Up
           </Button>
         </ButtonGroup>
-
-
-        {/* <p onClick={() => this.setState({ ...this.state, showLogin: true })}>
-          Log In
-        </p>
-        <p onClick={() => this.setState({ ...this.state, showSignup: true })}>
-          Sign Up
-        </p> */}
       </div>
     );
   }

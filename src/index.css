@@ -47,10 +47,6 @@ h1, h2, h3, h4, h5 {
   font-size: 3em;
 }
 
-#welcome-app-name {
-  font-size: 8em;
-}
-
 #welcome-btns {
   display: block;
   margin: auto;
