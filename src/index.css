@@ -30,7 +30,6 @@ code {
     monospace;
 }
 
-
 .offside {
   padding-left: 2%;
   padding-top: 1%;
@@ -39,6 +38,18 @@ code {
 h1, h2, h3, h4, h5 {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bolder;
+}
+
+#welcome-page {
+  text-align: center;
+}
+
+#welcome-header {
+  font-size: 3em;
+}
+
+#welcome-app-name {
+  font-size: 8em;
 }
 
 #main-header {

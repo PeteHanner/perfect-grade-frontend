@@ -21,10 +21,14 @@ class WelcomePage extends Component {
 
   render() {
     return (
-      <div className="offside">
-        <h2>
-          Welcome to Perfect Grade
+      <div className="offside" id="welcome-page">
+        <h2 id="welcome-header">
+          Welcome to
         </h2>
+        {/* <h2 id="welcome-app-name">
+          Perfect Grade
+        </h2> */}
+        <img id="main-logo" alt="Perfect Grade Logo" src="https://i.imgur.com/yAkZCHP.png" />
 
         <LoginForm
           show={this.state.showLogin}
