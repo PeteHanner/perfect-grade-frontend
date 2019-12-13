@@ -41,6 +41,12 @@ const LoginForm = (props) => {
     }
   }, [props.currentUser, props.coursesLoading]);
 
+  const errorList = () => {
+    if (props.errorMsg.length > 0) {
+      return props.errorMsg.map((msg) => <li>{msg}</li>);
+    }
+  };
+
   return (
     <Modal
       onHide={props.onHide}
@@ -53,9 +59,9 @@ const LoginForm = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p className="error-msg">
-          {props.errorMsg}
-        </p>
+        <ul className="error-msg">
+          {errorList()}
+        </ul>
         <Form
           onSubmit={handleSubmit}
         >

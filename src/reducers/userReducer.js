@@ -2,7 +2,7 @@ export default function userReducer(
   state = {
     currentUser: null,
     requesting: false,
-    errorMsg: '',
+    errorMsg: [],
   },
   action,
 ) {
@@ -17,13 +17,13 @@ export default function userReducer(
         ...state,
         currentUser: action.payload,
         requesting: false,
-        errorMsg: '',
+        errorMsg: [],
       };
     case 'BAD_LOGIN':
       return {
         ...state,
         requesting: false,
-        errorMsg: 'Invalid username or password',
+        errorMsg: ['Invalid username or password'],
       };
     case 'BAD_CREATION':
       return {
@@ -35,7 +35,7 @@ export default function userReducer(
       return {
         ...state,
         requesting: false,
-        errorMsg: 'Passwords do not match',
+        errorMsg: ['Passwords do not match'],
       };
     case 'LOG_OUT':
       return {
