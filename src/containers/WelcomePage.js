@@ -1,3 +1,4 @@
+/* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -5,10 +6,10 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button, ButtonGroup } from 'react-bootstrap';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 import { validateUser } from '../actions/validateUser';
-// import { fetchCourses } from '../actions/fetchCourses';
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -44,13 +45,28 @@ class WelcomePage extends Component {
           onClick={() => this.setState({ ...this.state, showSignup: true })}
           onHide={() => this.setState({ ...this.state, showSignup: false })}
         />
+        <ButtonGroup vertical id="welcome-btns">
+          <Button
+            variant="success"
+            onClick={() => this.setState({ ...this.state, showLogin: true })}
+          >
+            Log In
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => this.setState({ ...this.state, showSignup: true })}
+          >
+            Sign Up
+          </Button>
+        </ButtonGroup>
 
-        <p onClick={() => this.setState({ ...this.state, showLogin: true })}>
+
+        {/* <p onClick={() => this.setState({ ...this.state, showLogin: true })}>
           Log In
         </p>
         <p onClick={() => this.setState({ ...this.state, showSignup: true })}>
           Sign Up
-        </p>
+        </p> */}
       </div>
     );
   }

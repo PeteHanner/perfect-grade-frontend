@@ -19,15 +19,14 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  /* Preserve aspet ratio */
+  /* Preserve aspect ratio */
   min-width: 100%;
   min-height: 100%;
   opacity: 0.15;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .offside {
@@ -50,6 +49,10 @@ h1, h2, h3, h4, h5 {
 
 #welcome-app-name {
   font-size: 8em;
+}
+
+#welcome-btns {
+  display: block;
 }
 
 #main-header {
