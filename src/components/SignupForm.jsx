@@ -101,7 +101,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createUser: (formData) => dispatch(createUser(formData)),
-  passwordMismatch: () => dispatch({ type: 'PASSWORD_MISMATCH' })
+  passwordMismatch: () => dispatch({ type: 'PASSWORD_MISMATCH' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
