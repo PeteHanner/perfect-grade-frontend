@@ -26,7 +26,12 @@ class WelcomePage extends Component {
         <h2 id="welcome-header">
           Welcome to
         </h2>
+
         <img id="main-logo" alt="Perfect Grade Logo" src="https://i.imgur.com/yAkZCHP.png" />
+
+        <p id="tagline">
+          A tool for students to make sure the semester never gets too steep.
+        </p>
 
         <LoginForm
           show={this.state.showLogin}
