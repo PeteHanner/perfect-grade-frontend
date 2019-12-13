@@ -20,6 +20,10 @@ class WelcomePage extends Component {
     };
   }
 
+  hideLogin = () => {
+    this.setState({ ...this.state, showLogin: false })
+  }
+
   render() {
     return (
       <div className="offside" id="welcome-page">
