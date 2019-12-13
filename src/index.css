@@ -53,6 +53,9 @@ h1, h2, h3, h4, h5 {
 
 #welcome-btns {
   display: block;
+  margin: auto;
+  width: 15%;
+  padding-top: 4%;
 }
 
 #main-header {
