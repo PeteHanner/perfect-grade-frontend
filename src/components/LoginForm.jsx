@@ -43,7 +43,7 @@ const LoginForm = (props) => {
 
   const errorList = () => {
     if (props.errorMsg.length > 0 && props.show) {
-      return props.errorMsg.map((msg) => <li>{msg}</li>);
+      return props.errorMsg.map((msg) => <li key={msg}>{msg}</li>);
     }
   };
 
