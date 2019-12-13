@@ -37,6 +37,11 @@ export default function userReducer(
         requesting: false,
         errorMsg: 'Passwords do not match',
       };
+    case 'RESET_ERROR_MESSAGE':
+      return {
+        ...state,
+        errorMsg: '',
+      };
     case 'LOG_OUT':
       return {
         ...state,

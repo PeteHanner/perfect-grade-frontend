@@ -10,6 +10,7 @@ import { Button, ButtonGroup } from 'react-bootstrap';
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
 import { validateUser } from '../actions/validateUser';
+import { resetErrorMsg } from '../actions/resetErrorMsg';
 
 class WelcomePage extends Component {
   constructor(props) {
@@ -21,7 +22,13 @@ class WelcomePage extends Component {
   }
 
   hideLogin = () => {
-    this.setState({ ...this.state, showLogin: false })
+    this.setState({ ...this.state, showLogin: false });
+    this.props.resetErrorMsg()
+  };
+
+  hideSignup = () => {
+    this.setState({ ...this.state, showSignup: false });
+    this.props.resetErrorMsg()
   }
 
   render() {
@@ -43,13 +50,13 @@ class WelcomePage extends Component {
           currentUser={this.props.currentUser}
           coursesLoading={this.props.coursesLoading}
           onClick={() => this.setState({ ...this.state, showLogin: true })}
-          onHide={() => this.setState({ ...this.state, showLogin: false })}
+          onHide={this.hideLogin}
         />
         <SignupForm
           show={this.state.showSignup}
           history={this.props.history}
           onClick={() => this.setState({ ...this.state, showSignup: true })}
-          onHide={() => this.setState({ ...this.state, showSignup: false })}
+          onHide={this.hideSignup}
         />
         <ButtonGroup vertical id="welcome-btns">
           <Button
@@ -80,7 +87,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     validateUser: () => dispatch(validateUser()),
-    // fetchCourses: () => dispatch(fetchCourses()),
+    resetErrorMsg: () => dispatch(resetErrorMsg()),
   };
 }
 

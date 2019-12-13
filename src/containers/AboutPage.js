@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -31,5 +33,4 @@ function mapStateToProps(state) {
   return { state };
 }
 
-export default connect(mapStateToProps)(AboutPage)
-  ;
+export default connect(mapStateToProps)(AboutPage);
