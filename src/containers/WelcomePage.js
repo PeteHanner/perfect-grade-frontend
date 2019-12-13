@@ -50,12 +50,15 @@ class WelcomePage extends Component {
         <ButtonGroup vertical id="welcome-btns">
           <Button
             variant="success"
+            className="welcome-btn"
             onClick={() => this.setState({ ...this.state, showLogin: true })}
           >
             Log In
           </Button>
+          <div className="button-break" />
           <Button
             variant="primary"
+            className="welcome-btn"
             onClick={() => this.setState({ ...this.state, showSignup: true })}
           >
             Sign Up
@@ -76,7 +79,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     validateUser: () => dispatch(validateUser()),
-    // fetchCourses: () => dispatch(fetchCourses()),
   };
 }
 

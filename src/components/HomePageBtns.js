@@ -29,7 +29,7 @@ const HomePageBtns = (props) => {
           <strong> Make The Grade! </strong>
         </Button>
       </div>
-      <div id="button-break" />
+      <div className="button-break" />
       <div>
         <Button
           size="sm"
