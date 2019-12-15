@@ -15,7 +15,10 @@ class AboutPage extends Component {
   render() {
     return (
       <div className="offside about-page">
-        <h2>About Page</h2>
+        <h1>Perfect Grade</h1>
+        <p className='subtitle'>So the semester never gets too steep</p>
+
+
         <Button
           className="home-btn"
           variant="outline-primary"
