@@ -16,7 +16,7 @@ class AboutPage extends Component {
     return (
       <div className="offside about-page">
         <h1>Perfect Grade</h1>
-        <p className='subtitle'>So the semester never gets too steep</p>
+        <p className="subtitle">So the semester never gets too steep.</p>
 
 
         <Button
