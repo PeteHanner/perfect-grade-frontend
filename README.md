@@ -22,7 +22,7 @@ After logging in, a user can add all their courses for the semester. Within each
 
 Courses and assignments can be edited and deleted.
 
-![Editing and deleting](https://i.imgur.com/Ac399Ax.gif)
+![Editing and deleting](https://i.imgur.com/Ac399Ax.mp4)
 
 Once all assignments for the full semester have been entered, clicking "make the grade" from the main page will calculate a flattened workload. All empty days will be filled, and days with more assignments will be spread out to days with fewer assignments. 
 
