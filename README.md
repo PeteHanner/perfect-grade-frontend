@@ -18,17 +18,17 @@ The welcome page gives you the option of logging in or creating an account. Atte
 
 After logging in, a user can add all their courses for the semester. Within each course, they then can add all assignments from the syllabus. 
 
-![Adding assignments](https://i.imgur.com/nHgYavp.gifv)
+![Adding assignments](https://imgur.com/nHgYavp.gif)
 
 Courses and assignments can be edited and deleted.
 
-![Editing and deleting](https://imgur.com/Ac399Ax.gifv)
+![Editing and deleting](https://i.imgur.com/Ac399Ax.gif)
 
 Once all assignments for the full semester have been entered, clicking "make the grade" from the main page will calculate a flattened workload. All empty days will be filled, and days with more assignments will be spread out to days with fewer assignments. 
 
 This spreading only goes backward, so no assignments will be listed past its due date. The flattening algorithm also shows what day the assignment should actually be done based on the due date. This means students can enter assignments straight from the syllabus as written and get back an actionable, consistent plan for the whole semester with no additional effort.
 
-![Final flattened schedule](https://i.imgur.com/D19wMo7.gifv)
+![Final flattened schedule](https://i.imgur.com/D19wMo7.gif)
 
 ### Status
 
