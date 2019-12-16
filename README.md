@@ -18,7 +18,7 @@ The welcome page gives you the option of logging in or creating an account. Atte
 
 After logging in, a user can add all their courses for the semester. Within each course, they then can add all assignments from the syllabus. 
 
-![Adding assignments](https://i.imgur.com/nHgYavp.gif)
+![Adding assignments](https://i.imgur.com/nHgYavp.gifv)
 
 Courses and assignments can be edited and deleted.
 
