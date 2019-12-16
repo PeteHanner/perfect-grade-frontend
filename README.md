@@ -14,7 +14,7 @@ My aim with this project is to automate that problem. My hope is that students w
 
 The welcome page gives you the option of logging in or creating an account. Attempting to navigate to any other endpoint without being logged in will redirect you to the welcome page.
 
-![Login](https://imgur.com/me08obh.gifv)
+![Login](https://imgur.com/me08obh.gif)
 
 After logging in, a user can add all their courses for the semester. Within each course, they then can add all assignments from the syllabus. 
 
