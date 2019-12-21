@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-export const validateUser = () => (dispatch) => {
+export const validateUser = () => async (dispatch) => {
   const authToken = localStorage.token;
 
   const configObj = {
@@ -13,14 +13,12 @@ export const validateUser = () => (dispatch) => {
   };
 
   if (authToken) {
-    return fetch('http://localhost:3001/profile', configObj)
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.message) {
-          localStorage.removeItem('token');
-        } else {
-          dispatch({ type: 'LOGGED_IN', payload: data.user });
-        }
-      });
+    const r = await fetch('http://localhost:3001/profile', configObj);
+    const data = await r.json();
+    if (data.message) {
+      localStorage.removeItem('token');
+    } else {
+      dispatch({ type: 'LOGGED_IN', payload: data.user });
+    }
   }
 };
