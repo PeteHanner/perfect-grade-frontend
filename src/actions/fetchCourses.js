@@ -27,6 +27,8 @@ export function fetchCourses() {
           history.push('/welcome');
         }
       })
-      .catch((error) => alert(`There was an error (${error.message})`));
+      .catch((error) => {
+        dispatch({ type: 'BAD_COURSE_FETCH', payload: error.message });
+      });
   };
 }

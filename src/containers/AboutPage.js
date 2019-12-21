@@ -21,10 +21,7 @@ class AboutPage extends Component {
         <hr />
 
         <p>
-          We all know the feeling. You <em>finally</em> get through that huge,
-          stressful chunk of coursework and get a chance to relax. You only have
-          a couple easy assignments due over the next couple days. You&apos;re
-          living easy!
+          We all know the feeling. You <em>finally</em> get through that huge, stressful chunk of coursework and get a chance to relax. You only have a couple easy assignments due over the next couple days. You&apos;re living easy!
         </p>
 
         <Button

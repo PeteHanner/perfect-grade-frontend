@@ -2,6 +2,7 @@ export default function coursesReducer(
   state = {
     courses: [],
     requesting: false,
+    error: null,
   },
   action,
 ) {
@@ -17,6 +18,7 @@ export default function coursesReducer(
         ...state,
         courses: action.payload.sort((a, b) => ((a.id > b.id) ? 1 : -1)),
         requesting: false,
+        error: null,
       };
     case 'CREATING_COURSE':
       return {
@@ -29,6 +31,7 @@ export default function coursesReducer(
         ...state,
         courses: [...state.courses, action.payload].sort((a, b) => ((a.id > b.id) ? 1 : -1)),
         requesting: false,
+        error: null
       };
     case 'EDITING_COURSE':
       return {
@@ -47,8 +50,8 @@ export default function coursesReducer(
           return course;
         }).sort((a, b) => ((a.id > b.id) ? 1 : -1)),
         requesting: false,
+        error: null,
       };
-
     case 'DELETING_COURSE':
       return {
         ...state,
@@ -62,7 +65,13 @@ export default function coursesReducer(
           ...state.courses.filter((c) => c.id !== action.payload.id),
         ],
         requesting: false,
+        error: null,
       };
+    case 'BAD_COURSE_FETCH':
+      return {
+        ...state,
+        error: action.payload,
+      }
     default:
       return state;
   }

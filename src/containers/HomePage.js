@@ -12,19 +12,26 @@ import { fetchCourses } from '../actions/fetchCourses';
 class HomePage extends Component {
   componentDidMount() {
     if (localStorage.token) {
-      this.props.fetchCourses()
+      this.props.fetchCourses();
     } else {
-      this.props.history.push('/welcome')
+      this.props.history.push('/welcome');
     }
   }
 
   render() {
+    const loadingOrError = () => {
+      if (this.props.error) {
+        return `Error: ${this.props.error}`;
+      }
+      return 'Loading...';
+    };
+
     return (
       <div className="offside" id="home-page">
         <img id="main-logo" alt="Perfect Grade Logo" src="https://i.imgur.com/yAkZCHP.png" />
         {
           this.props.loading || !(this.props.currentUser)
-            ? <h5>Loading...</h5>
+            ? <h5>{loadingOrError()}</h5>
             : (
               <>
                 <CourseCards
@@ -44,6 +51,7 @@ function mapStateToProps(state) {
     currentUser: state.userReducer.currentUser,
     courses: state.coursesReducer.courses,
     loading: state.coursesReducer.requesting,
+    error: state.coursesReducer.error,
   };
 }
 
