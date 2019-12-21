@@ -21,7 +21,13 @@ class HomePage extends Component {
   render() {
     const loadingOrError = () => {
       if (this.props.error) {
-        return `Error: ${this.props.error}`;
+        return (
+          <h5 className="error-msg">
+            Error:
+            {' '}
+            {this.props.error}
+          </h5>
+        );
       }
       return 'Loading...';
     };

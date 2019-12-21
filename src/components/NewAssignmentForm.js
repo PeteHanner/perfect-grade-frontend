@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { withRouter } from 'react-router-dom';
@@ -25,6 +27,15 @@ const NewAssignmentForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      {props.error
+        ? (
+          <p className="error-msg">
+            Error:
+            {' '}
+            {props.error}
+          </p>
+        )
+        : null}
       <Form.Group controlId="newAssignment">
         <Form.Label><strong>Assignment Description: </strong></Form.Label>
         <Form.Control
@@ -46,8 +57,12 @@ const NewAssignmentForm = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  error: state.assignmentsReducer.error,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   createAssignment: (formData) => dispatch(createAssignment(formData)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(NewAssignmentForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewAssignmentForm));
