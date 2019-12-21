@@ -31,7 +31,7 @@ export default function coursesReducer(
         ...state,
         courses: [...state.courses, action.payload].sort((a, b) => ((a.id > b.id) ? 1 : -1)),
         requesting: false,
-        error: null
+        error: null,
       };
     case 'EDITING_COURSE':
       return {
@@ -44,8 +44,8 @@ export default function coursesReducer(
         ...state,
         courses: state.courses.map((course) => {
           if (course.id === action.payload.id) {
-            course = action.payload;
-            return course;
+            const newCourse = action.payload;
+            return newCourse;
           }
           return course;
         }).sort((a, b) => ((a.id > b.id) ? 1 : -1)),
