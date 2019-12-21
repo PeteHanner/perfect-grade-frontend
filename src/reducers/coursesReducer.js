@@ -71,7 +71,7 @@ export default function coursesReducer(
       return {
         ...state,
         error: action.payload,
-      }
+      };
     default:
       return state;
   }
