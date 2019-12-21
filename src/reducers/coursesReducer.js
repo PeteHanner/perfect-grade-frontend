@@ -67,7 +67,7 @@ export default function coursesReducer(
         requesting: false,
         error: null,
       };
-    case 'BAD_COURSE_FETCH':
+    case 'BAD_REQUEST':
       return {
         ...state,
         error: action.payload,

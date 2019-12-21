@@ -28,7 +28,7 @@ export function fetchCourses() {
         }
       })
       .catch((error) => {
-        dispatch({ type: 'BAD_COURSE_FETCH', payload: error.message });
+        dispatch({ type: 'BAD_REQUEST', payload: error.message });
       });
   };
 }
