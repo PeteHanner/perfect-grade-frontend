@@ -24,6 +24,8 @@ export function createAssignment(formData) {
         dispatch({ type: 'CHANGES_MADE' });
         dispatch(fetchCourses());
       })
-      .catch((error) => alert(`There was an error (${error.message})`));
+      .catch((error) => {
+        dispatch({ type: 'BAD_REQUEST', payload: error.message });
+      });
   };
 }

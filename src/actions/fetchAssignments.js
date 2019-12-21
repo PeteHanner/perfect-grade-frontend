@@ -33,6 +33,8 @@ export function fetchAssignments() {
         }
         dispatch({ type: 'ASSIGNMENTS_LOADED', payload: asgmts });
       })
-      .catch((error) => alert(`There was an error (${error.message})`));
+      .catch((error) => {
+        dispatch({ type: 'BAD_REQUEST', payload: error.message });
+      });
   };
 }
