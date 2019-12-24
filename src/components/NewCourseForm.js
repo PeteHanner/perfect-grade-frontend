@@ -15,7 +15,7 @@ const NewCourseForm = (props) => {
     e.preventDefault();
 
     const formData = {
-      userId: 1, // // TODO: take out hardcoding for user session
+      userId: props.currentUserId,
       courseTitle,
     };
 
@@ -74,6 +74,7 @@ const NewCourseForm = (props) => {
 function mapStateToProps(state) {
   return {
     error: state.coursesReducer.error,
+    currentUserId: state.userReducer.currentUser.id,
   };
 }
 
