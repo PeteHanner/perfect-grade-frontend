@@ -1,5 +1,5 @@
 Actions that need to have their components updated to handle error messages:
-  - createCourse (need to handle onHide() of modal if error)
+  - createCourse (closing modal on submit no matter what)
   - deleteAssignment
   - deleteCourse
   - editAssignment

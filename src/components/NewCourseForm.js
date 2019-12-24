@@ -20,10 +20,10 @@ const NewCourseForm = (props) => {
     };
 
     props.createCourse(formData)
-      .then((success) => {
-        // debugger
-        if (success) props.onHide();
-      });
+    // .then((success) => {
+    //   // debugger
+    //   // if (success) props.onHide();
+    // });
   };
 
   return (
