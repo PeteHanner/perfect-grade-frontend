@@ -22,7 +22,7 @@ class HomePage extends Component {
           </h5>
         );
       }
-      return 'Loading...';
+      return (<h5>Loading...</h5>);
     };
 
     return (
@@ -30,7 +30,7 @@ class HomePage extends Component {
         <img id="main-logo" alt="Perfect Grade Logo" src="https://i.imgur.com/yAkZCHP.png" />
         {
           this.props.loading || !(this.props.currentUser)
-            ? <h5>{loadingOrError()}</h5>
+            ? <>{loadingOrError()}</>
             : (
               <>
                 <CourseCards

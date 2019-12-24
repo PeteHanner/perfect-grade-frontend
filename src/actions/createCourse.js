@@ -13,14 +13,16 @@ export function createCourse(formData) {
 
   return (dispatch) => {
     dispatch({ type: 'CREATING_COURSE' });
-    fetch('http://localhost:3001/courses', configObj)
+    return fetch('http://localhost:3001/courses', configObj)
       .then((r) => r.json())
       .then((newCourse) => {
         dispatch({ type: 'COURSE_CREATED', payload: newCourse });
         dispatch({ type: 'CHANGES_MADE' });
+        return true;
       })
       .catch((error) => {
         dispatch({ type: 'BAD_REQUEST', payload: error.message });
+        return false;
       });
   };
 }
