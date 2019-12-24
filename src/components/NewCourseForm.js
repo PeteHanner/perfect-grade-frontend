@@ -21,7 +21,8 @@ const NewCourseForm = (props) => {
 
     props.createCourse(formData)
       .then((success) => {
-        if (!success) props.onHide();
+        // debugger
+        if (success) props.onHide();
       });
   };
 
