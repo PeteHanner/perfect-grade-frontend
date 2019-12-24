@@ -19,13 +19,12 @@ const NewCourseForm = (props) => {
       courseTitle,
     };
 
-    async function createCourse() {
-      props.createCourse(formData);
+    async function internalCreateCourse() {
+      await props.createCourse(formData);
+      if (!props.error) props.onHide();
     }
 
-    createCourse().then(() => {
-      if (!props.error) props.onHide();
-    });
+    internalCreateCourse();
   };
 
   return (
