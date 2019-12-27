@@ -11,18 +11,18 @@ export function createCourse(formData) {
     body: JSON.stringify(formData),
   };
 
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch({ type: 'CREATING_COURSE' });
-    return fetch('http://localhost:3001/courses', configObj)
-      .then((r) => r.json())
-      .then((newCourse) => {
-        dispatch({ type: 'COURSE_CREATED', payload: newCourse });
-        dispatch({ type: 'CHANGES_MADE' });
-        return true;
-      })
-      .catch((error) => {
-        dispatch({ type: 'BAD_REQUEST', payload: error.message });
-        return false;
-      });
+    try {
+      const r = await fetch('http://localhost:3001/courses', configObj);
+      const newCourse = await r.json();
+      dispatch({ type: 'COURSE_CREATED', payload: newCourse });
+      dispatch({ type: 'CHANGES_MADE' });
+      return true;
+    }
+    catch (error) {
+      dispatch({ type: 'BAD_REQUEST', payload: error.message });
+      return false;
+    }
   };
 }

@@ -12,6 +12,7 @@ const NewCourseForm = (props) => {
   const [courseTitle, setCourseTitle] = React.useState('');
 
   const handleSubmit = (e) => {
+    console.log(e)
     e.preventDefault();
 
     const formData = {
