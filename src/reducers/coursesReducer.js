@@ -23,7 +23,6 @@ export default function coursesReducer(
     case 'CREATING_COURSE':
       return {
         ...state,
-        // requesting: true,
       };
     case 'COURSE_CREATED':
       return {
