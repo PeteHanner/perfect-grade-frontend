@@ -19,7 +19,7 @@ const NewCourseForm = (props) => {
       courseTitle,
     };
 
-    props.createCourse(formData)
+    props.createCourse(formData);
     // .then((success) => {
     //   // debugger
     //   // if (success) props.onHide();
@@ -31,6 +31,7 @@ const NewCourseForm = (props) => {
       onHide={props.onHide}
       show={props.show}
       centered
+      backdrop="static"
     >
       {props.error
         ? (
