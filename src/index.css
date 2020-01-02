@@ -251,6 +251,7 @@ h5 {
 .error-msg {
   font-size: smaller;
   color: red;
+  padding: 1%;
 }
 
 .about-page {
