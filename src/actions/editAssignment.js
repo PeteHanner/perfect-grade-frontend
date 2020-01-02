@@ -14,17 +14,20 @@ export function editAssignment(formData) {
     body: JSON.stringify(formData),
   };
 
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch({ type: 'EDITING_ASSIGNMENT' });
-    fetch(`http://localhost:3001/assignments/${formData.id}`, configObj)
-      .then((r) => r.json())
-      .then((newAssignment) => {
-        dispatch({ type: 'ASSIGNMENT_EDITED', payload: newAssignment });
-        dispatch({ type: 'CHANGES_MADE' });
-        dispatch(fetchCourses());
-      })
-      .catch((error) => {
-        dispatch({ type: 'BAD_REQUEST', payload: error.message });
-      });
+
+    try {
+      const r = await fetch(`http://localhost:3001/assignments/${formData.id}`, configObj);
+      const newAssignment = await r.json();
+      dispatch({ type: 'ASSIGNMENT_EDITED', payload: newAssignment });
+      dispatch({ type: 'CHANGES_MADE' });
+      dispatch(fetchCourses());
+      return true;
+    }
+    catch (error) {
+      dispatch({ type: 'BAD_REQUEST', payload: error.message });
+      return false;
+    }
   };
 }
