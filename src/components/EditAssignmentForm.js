@@ -97,6 +97,7 @@ const EditAssignmentForm = (props) => {
 
 const mapStateToProps = (state) => ({
   assignments: state.assignmentsReducer.assignments,
+  error: state.assignmentsReducer.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
