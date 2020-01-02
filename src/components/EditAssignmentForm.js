@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
@@ -52,6 +53,15 @@ const EditAssignmentForm = (props) => {
         <h3>Edit Assignment</h3>
       </Modal.Header>
       <Modal.Body>
+        {props.error
+          ? (
+            <p className="error-msg">
+              Error:
+              {' '}
+              {props.error}
+            </p>
+          )
+          : null}
         <Form
           onSubmit={handleEditAssignment}
         >

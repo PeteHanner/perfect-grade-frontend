@@ -10,7 +10,6 @@ export default function assignmentsReducer(
     case 'REQUESTING_ASSIGNMENTS':
       return {
         ...state,
-        assignments: [...state.assignments],
         requesting: true,
       };
     case 'ASSIGNMENTS_LOADED':
@@ -23,7 +22,6 @@ export default function assignmentsReducer(
     case 'CREATING_ASSIGNMENT':
       return {
         ...state,
-        assignments: [...state.assignments],
         requesting: true,
       };
     case 'ASSIGNMENT_CREATED':
@@ -36,7 +34,6 @@ export default function assignmentsReducer(
     case 'EDITING_ASSIGNMENT':
       return {
         ...state,
-        assignments: [...state.assignments],
         requesting: true,
       };
     case 'ASSIGNMENT_EDITED':
@@ -49,7 +46,6 @@ export default function assignmentsReducer(
     case 'DELETING_ASSIGNMENT':
       return {
         ...state,
-        assignments: [...state.assignments],
         requesting: true,
       };
     case 'ASSIGNMENT_DELETED':
