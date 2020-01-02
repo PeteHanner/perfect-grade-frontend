@@ -19,8 +19,7 @@ export function createCourse(formData) {
       dispatch({ type: 'COURSE_CREATED', payload: newCourse });
       dispatch({ type: 'CHANGES_MADE' });
       return true;
-    }
-    catch (error) {
+    } catch (error) {
       dispatch({ type: 'BAD_REQUEST', payload: error.message });
       return false;
     }

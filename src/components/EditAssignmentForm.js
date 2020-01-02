@@ -32,8 +32,10 @@ const EditAssignmentForm = (props) => {
       newDesc,
       newDate: moment(newDate).format('MMMM D YYYY'),
     };
-    props.editAssignment(formData);
-    props.onHide();
+    props.editAssignment(formData)
+      .then((success) => {
+        if (success) props.onHide();
+      });
   };
 
   const handleDeleteAssignment = (e) => {

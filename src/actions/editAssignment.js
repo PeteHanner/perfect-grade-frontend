@@ -24,8 +24,7 @@ export function editAssignment(formData) {
       dispatch({ type: 'CHANGES_MADE' });
       dispatch(fetchCourses());
       return true;
-    }
-    catch (error) {
+    } catch (error) {
       dispatch({ type: 'BAD_REQUEST', payload: error.message });
       return false;
     }
