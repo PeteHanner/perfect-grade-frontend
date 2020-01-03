@@ -27,7 +27,7 @@ const NewAssignmentForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      {props.error
+      {props.error && !props.showEditForm
         ? (
           <p className="error-msg">
             Error:

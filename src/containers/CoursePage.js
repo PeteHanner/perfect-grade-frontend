@@ -65,7 +65,9 @@ class CoursePage extends Component {
           <CourseSchedule
             assignments={this.state.course.assignments}
           />
-          <CourseSidebar />
+          <CourseSidebar
+            showEditForm={this.state.showEditForm}
+          />
         </div>
       );
     }

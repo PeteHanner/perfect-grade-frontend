@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
@@ -19,7 +20,9 @@ const CourseSidebar = (props) => {
       <p className="help-text">As you add assignments, make sure to enter the due date as assigned.</p>
       <p className="help-text">Your finalized flat schedule will automatically update everything with the dates you should actually complete the assignment.</p>
       <br />
-      <NewAssignmentForm />
+      <NewAssignmentForm
+        showEditForm={props.showEditForm}
+      />
       <Button
         className="home-btn"
         variant="outline-primary"
