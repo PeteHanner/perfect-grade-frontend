@@ -31,8 +31,11 @@ const EditCourseForm = (props) => {
       courseId: props.courseId,
       newTitle,
     };
-    props.editCourse(formData);
-    props.onHide();
+
+    props.editCourse(formData)
+      .then((success) => {
+        if (success) props.onHide();
+      });
   };
 
   const handleDeleteCourse = (e) => {
