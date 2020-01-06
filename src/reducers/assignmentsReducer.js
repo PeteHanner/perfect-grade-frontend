@@ -55,6 +55,11 @@ export default function assignmentsReducer(
         requesting: false,
         error: null,
       };
+    case 'COURSE_EDITED':
+      return {
+        ...state,
+        error: null,
+      };
     case 'BAD_REQUEST':
       return {
         ...state,
